@@ -13,41 +13,14 @@
     />
   </head>
   <body>
-    <template>
-      <header>
-        <div class="title">SEPO Kalender</div>
-        <div class="seasonIcon" data-cy="welcome-segment">
-          <span class="material-symbols-outlined"> ac_unit </span>
-        </div>
-      </header>
-      <main>
-        <div class="calendarContainer">
-          <div class="monthPicker">
-            <div class="arrowLeft">
-              <span class="material-symbols-outlined"> arrow_back </span>
-            </div>
-            <div class="currentMonth"><span>NOVEMBER</span></div>
-            <div class="arrowRight">
-              <span class="material-symbols-outlined"> arrow_forward </span>
-            </div>
-          </div>
-          <div class="days">
-            <div class="daysItem">Mån</div>
-            <div class="daysItem">Tis</div>
-            <div class="daysItem">Ons</div>
-            <div class="daysItem">Tor</div>
-            <div class="daysItem">Fre</div>
-            <div class="daysItem">Lör</div>
-            <div class="daysItem">Sön</div>
-          </div>
-          <div class="calendar">
-            <!-- Dagar -->
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
-          </div>
-        </div>
-      </main>
+    <!-- <template> -->
+    <header>
+      <div class="title">SEPO Kalender</div>
+      <div class="seasonIcon" data-cy="welcome-segment">
+        <span class="material-symbols-outlined"> ac_unit </span>
+      </div>
+    </header>
+    <main>
       <aside>
         <div class="toDoContainer">
           <div class="toDo-activeDay">
@@ -55,15 +28,67 @@
             <span class="material-symbols-outlined"> add </span>
           </div>
           <div class="toDoItems">
-            <div class="toDoName">Gå till Borås Djurpark 🦁</div>
-            <div class="toDoTime">15:00</div>
+            <div class="toDoItems-details">
+              <div>Gå till Borås Djurpark 🦁</div>
+              <div>15:00</div>
+            </div>
+            <div class="toDoItems-actions">
+              <span class="material-symbols-outlined"> delete </span>
+              <span class="material-symbols-outlined"> edit </span>
+            </div>
           </div>
           <div class="toDoItems">
-            <div class="toDoName">Dra till andra lång 🍺</div>
-            <div class="toDoTime">19:00</div>
+            <div class="toDoItems-details">
+              <div>Dra till andra lång 🍺</div>
+              <div>19:00</div>
+            </div>
+            <div class="toDoItems-actions">
+              <span class="material-symbols-outlined"> delete </span>
+              <span class="material-symbols-outlined"> edit </span>
+            </div>
           </div>
         </div>
       </aside>
-    </template>
+      <div class="calendarContainer">
+        <div class="monthPicker">
+          <div class="arrowLeft">
+            <span class="material-symbols-outlined"> arrow_back </span>
+          </div>
+          <div class="currentMonth"><span>NOVEMBER</span></div>
+          <div class="arrowRight">
+            <span class="material-symbols-outlined"> arrow_forward </span>
+          </div>
+        </div>
+        <div class="days">
+          <div class="daysItem">Mån</div>
+          <div class="daysItem">Tis</div>
+          <div class="daysItem">Ons</div>
+          <div class="daysItem">Tor</div>
+          <div class="daysItem">Fre</div>
+          <div class="daysItem">Lör</div>
+          <div class="daysItem">Sön</div>
+        </div>
+        <div class="calendar">
+          <!-- Dagar -->
+          <div class="calendarDay">1</div>
+          <div class="calendarDay">1</div>
+          <div class="calendarDay">1</div>
+          <div class="calendarDay">1</div>
+          <div class="calendarDay">1</div>
+          <div class="calendarDay">1</div>
+          <div class="calendarDay">1</div>
+          <div class="calendarDay">1</div>
+          <div class="calendarDay">1</div>
+          <div class="calendarDay">1</div>
+          <div class="calendarDay">1</div>
+          <div class="calendarDay">1</div>
+          <div class="calendarDay">1</div>
+          <div class="calendarDay">1</div>
+          <div class="calendarDay">1</div>
+        </div>
+      </div>
+    </main>
+
+    <!-- </template> -->
   </body>
 </html>
