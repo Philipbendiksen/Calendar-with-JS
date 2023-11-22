@@ -13,10 +13,11 @@ header {
 main {
   display: flex;
   flex-direction: column-reverse;
-  justify-content: space-between;
   height: 100%;
 }
 body {
+  display: flex;
+  flex-direction: column;
   height: 100svh;
 }
 
@@ -72,6 +73,7 @@ body {
   background-color: brown;
   width: 100%;
   padding: 1rem;
+  margin-top: auto;
 }
 
 .toDo-activeDay {
@@ -103,15 +105,18 @@ body {
 
 @media screen and (min-width: 800px) {
   .toDoContainer {
+    height: 100%;
   }
 
   main {
     display: flex;
     flex-direction: row;
   }
-  .aside {
+  aside {
     height: 100%;
-    flex: 1;
-    clear: both;
+    width: 30%;
+  }
+  .calendarContainer {
+    height: 100%;
   }
 }
