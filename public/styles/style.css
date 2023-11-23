@@ -40,7 +40,7 @@ body {
   gap: 1rem;
 }
 
-.calendar {
+.calender {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(5, 100px);
@@ -64,6 +64,15 @@ body {
   display: flex;
   justify-content: center;
   padding: 1rem;
+}
+
+.inactiv { 
+  border: 1px solid rgba(0, 0, 0, 0.264);
+  opacity: 0.4;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+
 }
 
 .toDoContainer {

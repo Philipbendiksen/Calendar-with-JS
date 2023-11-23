@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="main.js"></script>
+    <script src="calendar.js"></script>
     <link rel="stylesheet" href="styles/style.css" />
     <link
       rel="stylesheet"
@@ -13,7 +14,7 @@
     />
   </head>
   <body>
-    <template>
+   <!-- <template>  --> 
       <header>
         <div class="title">SEPO Kalender</div>
         <div class="seasonIcon" data-cy="welcome-segment">
@@ -68,26 +69,60 @@
             <div class="daysItem">Lör</div>
             <div class="daysItem">Sön</div>
           </div>
-          <div class="calendar">
+
+          <div>
+          <ul class="calender" id="calenderDays" data-cy="calendar-cell">
             <!-- Dagar -->
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
-          </div>
+
+<!-- Gör inaktiv li med annan css  -->
+<li class="inactiv">30</li> 
+<li class="inactiv">31</li> 
+
+
+            <li class="calendarDay">1</li>
+            <li class="calendarDay">2</li>
+            <li class="calendarDay">3</li>
+            <li class="calendarDay">4</li>
+            <li class="calendarDay">5</li>
+            <li class="calendarDay">6</li>
+            <li class="calendarDay">7</li>
+            <li class="calendarDay">8</li>
+            <li class="calendarDay">9</li>
+            <li class="calendarDay">10</li>
+            <li class="calendarDay">11</li>
+            <li class="calendarDay">12</li>
+            <li class="calendarDay">13</li>
+            <li class="calendarDay">14</li>
+            <li class="calendarDay">15</li>
+            <li class="calendarDay">15</li>
+            <li class="calendarDay">16</li>
+            <li class="calendarDay">17</li>
+            <li class="calendarDay">18</li>
+            <li class="calendarDay">19</li>
+            <li class="calendarDay">20</li>
+            <li class="calendarDay">21</li>
+            <li class="calendarDay">22</li>
+            <li class="calendarDay">23</li>
+            <li class="calendarDay">24</li>
+            <li class="calendarDay">25</li>
+            <li class="calendarDay">26</li>
+            <li class="calendarDay">27</li>
+            <li class="calendarDay">28</li>
+            <li class="calendarDay">29</li>
+            <li class="calendarDay">30</li>
+
+<li class="inactiv">1</li> 
+
+
+<!-- Gör inaktiv li med annan css  -->
+
+          </ul>
+        </div>
+
         </div>
       </main>
-    </template>
+   <!-- </template> --> 
   </body>
 </html>
+
+
