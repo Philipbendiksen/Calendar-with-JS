@@ -13,6 +13,7 @@ header {
 main {
   display: flex;
   flex-direction: column-reverse;
+  justify-content: space-between;
   height: 100%;
 }
 body {
@@ -22,7 +23,8 @@ body {
 }
 
 .title,
-.seasonIcon {
+.welcomeSegment-mobile,
+.seasonalIcon {
   margin: 1rem;
 }
 
@@ -43,10 +45,6 @@ body {
 .calendar {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(5, 100px);
-  gap: 1rem;
-  margin: 1rem;
-  padding: 0 1rem;
 }
 .days {
   display: grid;
@@ -107,6 +105,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 80%;
 }
 
 .hide {
@@ -120,7 +119,18 @@ body {
   background-color: steelblue;
   padding: 1rem;
 }
+.welcomeSegment-desktop {
+  display: none;
+}
 @media screen and (min-width: 800px) {
+  .welcomeSegment-desktop {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .welcomeSegment-mobile {
+    display: none;
+  }
   .toDoContainer {
     height: 100%;
   }
@@ -130,6 +140,8 @@ body {
     flex-direction: row;
   }
   aside {
+    display: flex;
+    flex-direction: column;
     height: 100%;
     width: 30%;
   }

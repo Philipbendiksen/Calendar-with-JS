@@ -17,12 +17,21 @@
     <!-- <template> -->
     <header>
       <div class="title">SEPO Kalender</div>
-      <div class="seasonIcon" data-cy="welcome-segment">
-        <span class="material-symbols-outlined"> ac_unit </span>
+      <div class="seasonalIcon">⛄️❄️</div>
+      <div class="welcomeSegment-mobile" data-cy="welcome-segment">
+        <div class="welcomeDay">Monday</div>
+        <div class="welcomeTime">11.11</div>
+        <div class="welcomeDate">2023-09-09</div>
+        <!-- 3. Skapa och designa välkomstsegmentet (delen ovanför todo-listan) med tid, veckodag och datum presenteras. (G) -->
       </div>
     </header>
     <main>
       <aside>
+        <div class="welcomeSegment-desktop" data-cy="welcome-segment">
+          <div class="welcomeDay">Monday</div>
+          <div class="welcomeTime">11.11</div>
+          <div class="welcomeDate">2023-09-09</div>
+        </div>
         <div class="toDoContainer">
           <div class="toDo-activeDay">
             <span>ACTIVE DATE</span>
@@ -44,6 +53,18 @@
               <span class="material-symbols-outlined"> edit </span>
             </div>
           </div>
+
+          <div class="toDoItems" data-cy="todo-list">
+            <div class="toDoItems-details">
+              <div>Gå till Borås Djurpark 🦁</div>
+              <div>15:00</div>
+            </div>
+            <div class="toDoItems-actions">
+              <span class="material-symbols-outlined"> delete </span>
+              <span class="material-symbols-outlined"> edit </span>
+            </div>
+          </div>
+
           <div class="toDoItems" data-cy="calendar-cell-todos">
             <div class="toDoItems-details">
               <div>Dra till andra lång 🍺</div>
@@ -91,6 +112,30 @@
         </div>
         <div class="calendar" data-cy="calendar-body">
           <!-- Dagar -->
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
           <div class="calendarDay" data-cy="calendar-cell-date">1</div>
           <div class="calendarDay" data-cy="calendar-cell-date">1</div>
           <div class="calendarDay" data-cy="calendar-cell-date">1</div>
