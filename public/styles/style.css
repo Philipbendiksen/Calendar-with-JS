@@ -102,7 +102,24 @@ body {
 .toDo-activeDay .material-symbols-outlined {
   font-size: 2rem;
 }
+.toDoModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
+.hide {
+  opacity: 0;
+}
+
+.modalContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: steelblue;
+  padding: 1rem;
+}
 @media screen and (min-width: 800px) {
   .toDoContainer {
     height: 100%;

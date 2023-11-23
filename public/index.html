@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
+    <script src="modal.js" defer></script>
     <link rel="stylesheet" href="styles/style.css" />
     <link
       rel="stylesheet"
@@ -13,81 +14,119 @@
     />
   </head>
   <body>
-    <template>
-      <header>
-        <div class="title">SEPO Kalender</div>
-        <div class="seasonIcon" data-cy="welcome-segment">
-          <span class="material-symbols-outlined"> ac_unit </span>
-        </div>
-      </header>
-      <main>
-        <aside>
-          <div class="toDoContainer">
-            <div class="toDo-activeDay">
-              <span>ACTIVE DATE</span>
-              <span class="material-symbols-outlined"> add </span>
+    <!-- <template> -->
+    <header>
+      <div class="title">SEPO Kalender</div>
+      <div class="seasonIcon" data-cy="welcome-segment">
+        <span class="material-symbols-outlined"> ac_unit </span>
+      </div>
+    </header>
+    <main>
+      <aside>
+        <div class="toDoContainer">
+          <div class="toDo-activeDay">
+            <span>ACTIVE DATE</span>
+            <span
+              class="material-symbols-outlined"
+              data-cy="todo-reveal-form"
+              id="btnOpenPopUp"
+            >
+              add
+            </span>
+          </div>
+          <div class="toDoItems" data-cy="todo-list">
+            <div class="toDoItems-details">
+              <div>Gå till Borås Djurpark 🦁</div>
+              <div>15:00</div>
             </div>
-            <div class="toDoItems">
-              <div class="toDoItems-details">
-                <div>Gå till Borås Djurpark 🦁</div>
-                <div>15:00</div>
-              </div>
-              <div class="toDoItems-actions">
-                <span class="material-symbols-outlined"> delete </span>
-                <span class="material-symbols-outlined"> edit </span>
-              </div>
-            </div>
-            <div class="toDoItems">
-              <div class="toDoItems-details">
-                <div>Dra till andra lång 🍺</div>
-                <div>19:00</div>
-              </div>
-              <div class="toDoItems-actions">
-                <span class="material-symbols-outlined"> delete </span>
-                <span class="material-symbols-outlined"> edit </span>
-              </div>
+            <div class="toDoItems-actions">
+              <span class="material-symbols-outlined"> delete </span>
+              <span class="material-symbols-outlined"> edit </span>
             </div>
           </div>
-        </aside>
-        <div class="calendarContainer">
-          <div class="monthPicker">
-            <div class="arrowLeft">
-              <span class="material-symbols-outlined"> arrow_back </span>
+          <div class="toDoItems" data-cy="calendar-cell-todos">
+            <div class="toDoItems-details">
+              <div>Dra till andra lång 🍺</div>
+              <div>19:00</div>
             </div>
-            <div class="currentMonth"><span>NOVEMBER</span></div>
-            <div class="arrowRight">
-              <span class="material-symbols-outlined"> arrow_forward </span>
+            <div class="toDoItems-actions">
+              <span
+                class="material-symbols-outlined"
+                data-cy="delete-todo-button"
+              >
+                delete
+              </span>
+              <span
+                class="material-symbols-outlined"
+                data-cy="edit-todo-button"
+              >
+                edit
+              </span>
             </div>
-          </div>
-          <div class="days">
-            <div class="daysItem">Mån</div>
-            <div class="daysItem">Tis</div>
-            <div class="daysItem">Ons</div>
-            <div class="daysItem">Tor</div>
-            <div class="daysItem">Fre</div>
-            <div class="daysItem">Lör</div>
-            <div class="daysItem">Sön</div>
-          </div>
-          <div class="calendar">
-            <!-- Dagar -->
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
-            <div class="calendarDay">1</div>
           </div>
         </div>
-      </main>
-    </template>
+      </aside>
+      <div class="calendarContainer">
+        <div class="monthPicker">
+          <div class="arrowLeft">
+            <span class="material-symbols-outlined" data-cy="prev-month">
+              arrow_back
+            </span>
+          </div>
+          <div class="currentMonth"><span>NOVEMBER</span></div>
+          <div class="arrowRight">
+            <span class="material-symbols-outlined" data-cy="next-month">
+              arrow_forward
+            </span>
+          </div>
+        </div>
+        <div class="days">
+          <div class="daysItem" data-cy="calendar-cell">Mån</div>
+          <div class="daysItem" data-cy="calendar-cell">Tis</div>
+          <div class="daysItem" data-cy="calendar-cell">Ons</div>
+          <div class="daysItem" data-cy="calendar-cell">Tor</div>
+          <div class="daysItem" data-cy="calendar-cell">Fre</div>
+          <div class="daysItem" data-cy="calendar-cell">Lör</div>
+          <div class="daysItem" data-cy="calendar-cell">Sön</div>
+        </div>
+        <div class="calendar" data-cy="calendar-body">
+          <!-- Dagar -->
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
+        </div>
+      </div>
+      <div class="toDoModal hide" id="modal-popUp">
+        <div class="modalContainer">
+          <span class="material-symbols-outlined" id="btnClose-popUp">
+            close
+          </span>
+          <input
+            type="text"
+            id="title"
+            placeholder="title"
+            data-cy="todo-title-input"
+          />
+          <input type="text" id="title" placeholder="place" />
+          <input
+            type="date"
+            id="title"
+            placeholder="date"
+            data-cy="todo-date-input"
+          />
+          <input type="text" id="title" placeholder="notes" />
+          <button data-cy="save-todo-button">SAVE</button>
+        </div>
+      </div>
+    </main>
+    <!-- </template> -->
   </body>
 </html>
