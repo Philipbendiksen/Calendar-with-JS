@@ -23,7 +23,8 @@ body {
 }
 
 .title,
-.seasonIcon {
+.welcomeSegment-mobile,
+.seasonalIcon {
   margin: 1rem;
 }
 
@@ -118,7 +119,18 @@ body {
   background-color: steelblue;
   padding: 1rem;
 }
+.welcomeSegment-desktop {
+  display: none;
+}
 @media screen and (min-width: 800px) {
+  .welcomeSegment-desktop {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .welcomeSegment-mobile {
+    display: none;
+  }
   .toDoContainer {
     height: 100%;
   }
@@ -128,6 +140,8 @@ body {
     flex-direction: row;
   }
   aside {
+    display: flex;
+    flex-direction: column;
     height: 100%;
     width: 30%;
   }
