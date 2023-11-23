@@ -1,7 +1,3 @@
 let todos = [];
 
-function addToDo() {
-  const newToDo = {
-    despr,
-  };
-}
+function addToDo() {}
