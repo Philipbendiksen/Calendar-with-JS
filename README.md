@@ -40,6 +40,7 @@ _Skiss att utgå ifrån till er layout (vissa delar så som väder och bilder be
 ### Lista av data-cy som ska finnas i koden
 
 - Välkomstsegment för aktuell dag:`data-cy="welcome-segment"`
+  MISSING THIS ONE!
 - Lista med alla todos: `data-cy="todo-list”`
 - Elementet som innehåller alla dagarna i en månad: `data-cy="calendar-body"`
 - Elementet för varje dag i kalendern: `data-cy="calendar-cell"`
