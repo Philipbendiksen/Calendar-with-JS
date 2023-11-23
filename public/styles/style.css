@@ -13,6 +13,7 @@ header {
 main {
   display: flex;
   flex-direction: column-reverse;
+  justify-content: space-between;
   height: 100%;
 }
 body {
@@ -43,10 +44,6 @@ body {
 .calendar {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(5, 100px);
-  gap: 1rem;
-  margin: 1rem;
-  padding: 0 1rem;
 }
 .days {
   display: grid;
@@ -107,6 +104,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 80%;
 }
 
 .hide {
