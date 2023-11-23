@@ -1,3 +1,0 @@
-let todos = [];
-
-function addToDo() {}
