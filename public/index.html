@@ -11,6 +11,7 @@
     <script src="modal.js" defer></script>
     <script src="today.js" defer></script>
 
+    <script src="todo.js" defer></script>
     <link rel="stylesheet" href="styles/style.css" />
     <link
       rel="stylesheet"
@@ -172,23 +173,22 @@
           </span>
           <input
             type="text"
-            id="title"
+            id="todoTitle"
             placeholder="title"
             data-cy="todo-title-input"
           />
-          <input type="text" id="title" placeholder="place" />
+          <input type="text" id="todoPlace" placeholder="place" />
           <input
             type="date"
-            id="title"
+            id="todoDate"
             placeholder="date"
             data-cy="todo-date-input"
           />
-          <input type="text" id="title" placeholder="notes" />
-          <button data-cy="save-todo-button">SAVE</button>
+          <input type="text" id="todoNotes" placeholder="notes" />
+          <button id="btnSave" data-cy="save-todo-button">SAVE</button>
         </div>
       </div>
     </main>
     <!-- </template> -->
   </body>
 </html>
-
