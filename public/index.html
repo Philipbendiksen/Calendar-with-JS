@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
-    <script src="calendar.js"></script>
+    <script src="calendar.js" defer ></script>
     <script src="main.js" defer></script>
     <script src="modal.js" defer></script>
     <script src="today.js" defer></script>
@@ -108,7 +108,9 @@
             </span>
           </div>
         </div>
-        <div class="days">
+
+
+        <div class="days" id="calenderDay"  >
           <div class="daysItem" data-cy="calendar-cell">Mån</div>
           <div class="daysItem" data-cy="calendar-cell">Tis</div>
           <div class="daysItem" data-cy="calendar-cell">Ons</div>
@@ -118,7 +120,7 @@
           <div class="daysItem" data-cy="calendar-cell">Sön</div>
         </div>
  <div>
-          <ul class="calender" id="calenderDays" data-cy="calendar-cell">
+          <ul class="calender" id="calenderNumber" data-cy="calendar-cell">
             <!-- Dagar -->
 
 <!-- Gör inaktiv li med annan css  -->

@@ -6,21 +6,36 @@ function main() {
 
 
 
-const calender = document.getElementById('calenderdays');
 
-function createCalender(daysINMonth) {
-    calender.innerHTML = '';
+let nav = 0;
+let clicked = null;
+let events = localStorage.getItem('events') ? JSON.parse(localStorage.getItem('events')) : [];
 
-    for (let day = 1; day <= daysINMonth; day++) {
-        const calenderDay = document.createElement('div');
-        calenderDay.classList.add('calendarDay');
-        calenderDay.textContent = day;
-        calender.appendChild(calenderDay);
+const calender = document.getElementById('calender');
+const weekdays = ['Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lördag', 'Söndag'];
 
+function load() {
+    const dt = new Date();
 
-    }
+    console.log(dt);
+
+    const day = dt.getDate();
+    const month = dt.getMonth();
+    const year = dt.getFullYear();
+
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
 }
 
-createCalender(30);
+load();
 
+
+
+
+
+
+
+
+
+/* 13:30 i videon  */
 
