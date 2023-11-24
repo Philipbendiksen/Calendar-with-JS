@@ -5,17 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
+    <script src="calendar.js"></script>
     <script src="main.js" defer></script>
     <script src="modal.js" defer></script>
     <script src="today.js" defer></script>
+
     <script src="todo.js" defer></script>
     <link rel="stylesheet" href="styles/style.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
-  </head>
+  </head> 
   <body>
+
     <!-- <template> -->
     <header>
       <div class="title">SEPO Kalender</div>
@@ -33,6 +37,7 @@
           <div class="welcomeDay">Monday</div>
           <div class="welcomeTime">11.11</div>
           <div class="welcomeDate">2023-09-09</div>
+
         </div>
         <div class="toDoContainer">
           <div class="toDo-activeDay">
@@ -96,6 +101,7 @@
               arrow_back
             </span>
           </div>
+
           <div class="currentMonth"><span>NOVEMBER</span></div>
           <div class="arrowRight">
             <span class="material-symbols-outlined" data-cy="next-month">
@@ -112,45 +118,54 @@
           <div class="daysItem" data-cy="calendar-cell">Lör</div>
           <div class="daysItem" data-cy="calendar-cell">Sön</div>
         </div>
-        <div class="calendar" data-cy="calendar-body">
-          <!-- Dagar -->
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-          <div class="calendarDay" data-cy="calendar-cell-date">1</div>
-        </div>
+ <div>
+          <ul class="calender" id="calenderDays" data-cy="calendar-cell">
+            <!-- Dagar -->
+
+<!-- Gör inaktiv li med annan css  -->
+<li class="inactiv">30</li> 
+<li class="inactiv">31</li> 
+
+
+            <li class="calendarDay">1</li>
+            <li class="calendarDay">2</li>
+            <li class="calendarDay">3</li>
+            <li class="calendarDay">4</li>
+            <li class="calendarDay">5</li>
+            <li class="calendarDay">6</li>
+            <li class="calendarDay">7</li>
+            <li class="calendarDay">8</li>
+            <li class="calendarDay">9</li>
+            <li class="calendarDay">10</li>
+            <li class="calendarDay">11</li>
+            <li class="calendarDay">12</li>
+            <li class="calendarDay">13</li>
+            <li class="calendarDay">14</li>
+            <li class="calendarDay">15</li>
+            <li class="calendarDay">15</li>
+            <li class="calendarDay">16</li>
+            <li class="calendarDay">17</li>
+            <li class="calendarDay">18</li>
+            <li class="calendarDay">19</li>
+            <li class="calendarDay">20</li>
+            <li class="calendarDay">21</li>
+            <li class="calendarDay">22</li>
+            <li class="calendarDay">23</li>
+            <li class="calendarDay">24</li>
+            <li class="calendarDay">25</li>
+            <li class="calendarDay">26</li>
+            <li class="calendarDay">27</li>
+            <li class="calendarDay">28</li>
+            <li class="calendarDay">29</li>
+            <li class="calendarDay">30</li>
+
+<li class="inactiv">1</li> 
+
+
+          </ul>
+      
       </div>
+
       <div class="toDoModal hide" id="modal-popUp">
         <div class="modalContainer">
           <span class="material-symbols-outlined" id="btnClose-popUp">
