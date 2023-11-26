@@ -39,7 +39,7 @@ function load() {
 
         }
 
-        calender.appendChild(daySquare);
+        calender.appendChild(daySquare);     /* 29 min in i videon */
 
     }
 
