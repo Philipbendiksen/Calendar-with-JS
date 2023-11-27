@@ -10,7 +10,7 @@ function todayString() {
     "Maj",
     "April",
     "Maj",
-    "uni",
+    "Juni",
     "Juli",
     "Augusti",
     "September",
