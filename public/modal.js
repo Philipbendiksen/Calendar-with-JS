@@ -2,7 +2,6 @@ function PopUp() {
   const btnPopUp = document.getElementById("btnOpenPopUp");
   const popUpContainer = document.getElementById("modal-popUp");
 
-  console.log(btnPopUp);
   btnPopUp.addEventListener("click", () => {
     popUpContainer.classList.remove("hide");
   });
