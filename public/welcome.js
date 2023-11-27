@@ -18,7 +18,7 @@ function createWelcomeSegment() {
   const welcomeMobile = document.createElement("div");
   welcomeMobile.className = "welcomeSegment-mobile";
   welcomeMobile.setAttribute("data-cy", "welcome-segment");
-
+  
   header.appendChild(welcomeMobile);
 
   const welcomeDayDiv = document.createElement("div");
@@ -42,10 +42,6 @@ function createWelcomeSegment() {
   const welcomeTimeDiv = document.createElement("div");
   welcomeTimeDiv.className = "welcomeTime";
 
-  const hour = now.getHours();
-  const minutes = now.getMinutes();
-  const timeString = hour + ":" + (minutes < 10 ? "0" : "") + minutes;
-  welcomeTimeDiv.textContent = timeString;
   header.appendChild(welcomeTimeDiv);
 
   const welcomeDateDiv = document.createElement("div");
@@ -58,4 +54,16 @@ function createWelcomeSegment() {
   welcomeDateDiv.textContent = dateString;
 
   header.appendChild(welcomeDateDiv);
+
+  function updateWelcomeTime() {
+    const now = new Date();
+    const hour = now.getHours();
+    const minutes = now.getMinutes();
+    const timeString = hour + ":" + (minutes < 10 ? "0" : "") + minutes;
+    welcomeTimeDiv.textContent = timeString;
+  }
+  updateWelcomeTime();
+
+  setInterval(updateWelcomeTime, 60000); // 60000 milliseconds = 1 minute
 }
+
