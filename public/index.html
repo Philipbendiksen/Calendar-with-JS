@@ -27,7 +27,9 @@
         <div class="welcomeDay">Monday</div>
         <div class="welcomeTime">11.11</div>
         <div class="welcomeDate">2023-09-09</div>
-       <-- 3. Skapa och designa välkomstsegmentet (delen ovanför todo-listan) med tid, veckodag och datum presenteras. (G) -->
+
+   3. Skapa och designa välkomstsegmentet (delen ovanför todo-listan) med tid, veckodag och datum presenteras. (G) -->
+
        <!-- </div>
     </header>  --> 
     <main>
@@ -38,7 +40,8 @@
           <div class="welcomeDate">2023-09-09</div>
 
         </div>
-        <div class="toDoContainer">
+
+        <div class="toDoContainer" id="toDoContainer">
           <div class="toDo-activeDay">
             <span id="activeDate">ACTIVE DATE</span>
             <span
@@ -48,11 +51,10 @@
               add
             </span>
           </div>
+          <ul id="todayEvents">
+            
+          </ul>
           <div class="toDoItems" data-cy="todo-list">
-            <div class="toDoItems-details">
-              <div>Gå till Borås Djurpark 🦁</div>
-              <div>15:00</div>
-            </div>
             <div class="toDoItems-actions">
               <span class="material-symbols-outlined"> delete </span>
               <span class="material-symbols-outlined"> edit </span>
@@ -60,10 +62,6 @@
           </div>
 
           <div class="toDoItems" data-cy="todo-list">
-            <div class="toDoItems-details">
-              <div>Gå till Borås Djurpark 🦁</div>
-              <div>15:00</div>
-            </div>
             <div class="toDoItems-actions">
               <span class="material-symbols-outlined"> delete </span>
               <span class="material-symbols-outlined"> edit </span>
@@ -71,10 +69,6 @@
           </div>
 
           <div class="toDoItems" data-cy="calendar-cell-todos">
-            <div class="toDoItems-details">
-              <div>Dra till andra lång 🍺</div>
-              <div>19:00</div>
-            </div>
             <div class="toDoItems-actions">
               <span
                 class="material-symbols-outlined"
@@ -90,7 +84,10 @@
               </span>
             </div>
           </div>
+
         </div>
+
+
       </aside>
 
 
@@ -139,7 +136,10 @@
         </div>
  <div>
 
+
+
           <div class="calender" id="calenderNumber" data-cy="calendar-cell">   <!-- Dagar genererade med JS -->
+
 
 </div>
       
@@ -167,7 +167,6 @@
           <button id="btnSave" data-cy="save-todo-button">SAVE</button>
         </div>
       </div>
-    </main>
-    <!-- </template> -->
+    </main>    
   </body>
 </html>
