@@ -27,9 +27,9 @@
         <div class="welcomeDay">Monday</div>
         <div class="welcomeTime">11.11</div>
         <div class="welcomeDate">2023-09-09</div>
-       <!-- 3. Skapa och designa välkomstsegmentet (delen ovanför todo-listan) med tid, veckodag och datum presenteras. (G) -->
+       <-- 3. Skapa och designa välkomstsegmentet (delen ovanför todo-listan) med tid, veckodag och datum presenteras. (G) -->
        <!-- </div>
-    </header>  -->
+    </header>  --> 
     <main>
       <aside>
         <div class="welcomeSegment-desktop" data-cy="welcome-segment">
@@ -44,8 +44,7 @@
             <span
               class="material-symbols-outlined"
               data-cy="todo-reveal-form"
-              id="btnOpenPopUp"
-            >
+              id="btnOpenPopUp">
               add
             </span>
           </div>
@@ -93,78 +92,55 @@
           </div>
         </div>
       </aside>
+
+
       <div class="calendarContainer">
-        <div class="monthPicker">
-          <div class="arrowLeft">
-            <span class="material-symbols-outlined" data-cy="prev-month">
-              arrow_back
-            </span>
+
+        <div id="seeDate">
+
+            <div class="buttons">
+
+              <button id="lastMonth">Last month</button> 
+
+              <div id="Monthdisplay">  </div>
+
+              <button id="nextMonth">Next month</button>
+      
+            </div>
+
+        </div>
+
+
+
+
+
+  <!--       <div class="monthPicker" id="monthPicker">
+
+          <div data-cy="prev-month">
+           <button id="arrowLeft" > </button>
           </div>
 
           <div class="currentMonth"><span>NOVEMBER</span></div>
-          <div class="arrowRight">
-            <span class="material-symbols-outlined" data-cy="next-month">
-              arrow_forward
-            </span>
-          </div>
-        </div>
+ 
+           <div class="material-symbols-outlined" data-cy="next-month">
+              <button id="arrowRight"> </button>
+           </div>
+        </div> -->
 
 
-        <div class="days" id="calenderDay"  >
-          <div class="daysItem" data-cy="calendar-cell">Mån</div>
-          <div class="daysItem" data-cy="calendar-cell">Tis</div>
-          <div class="daysItem" data-cy="calendar-cell">Ons</div>
-          <div class="daysItem" data-cy="calendar-cell">Tor</div>
-          <div class="daysItem" data-cy="calendar-cell">Fre</div>
-          <div class="daysItem" data-cy="calendar-cell">Lör</div>
-          <div class="daysItem" data-cy="calendar-cell">Sön</div>
+        <div class="days" id="calenderDay">
+          <div class="daysItem" data-cy="calendar-cell">MÅN</div>
+          <div class="daysItem" data-cy="calendar-cell">TIS</div>
+          <div class="daysItem" data-cy="calendar-cell">ONS</div>
+          <div class="daysItem" data-cy="calendar-cell">TORS</div>
+          <div class="daysItem" data-cy="calendar-cell">FRE</div>
+          <div class="daysItem" data-cy="calendar-cell">LÖRD</div>
+          <div class="daysItem" data-cy="calendar-cell">SÖND</div>
         </div>
  <div>
 
-          <div class="calender" id="calenderNumber" data-cy="calendar-cell">
+          <div class="calender" id="calenderNumber" data-cy="calendar-cell">   <!-- Dagar genererade med JS -->
 
-            <!-- Dagar -->
-
-<!-- Gör inaktiv li med annan css  
-<li class="inactiv">30</li> 
-<li class="inactiv">31</li> 
-
-
-            <li class="calendarDay">1</li>
-            <li class="calendarDay">2</li>
-            <li class="calendarDay">3</li>
-            <li class="calendarDay">4</li>
-            <li class="calendarDay">5</li>
-            <li class="calendarDay">6</li>
-            <li class="calendarDay">7</li>
-            <li class="calendarDay">8</li>
-            <li class="calendarDay">9</li>
-            <li class="calendarDay">10</li>
-            <li class="calendarDay">11</li>
-            <li class="calendarDay">12</li>
-            <li class="calendarDay">13</li>
-            <li class="calendarDay">14</li>
-            <li class="calendarDay">15</li>
-            <li class="calendarDay">15</li>
-            <li class="calendarDay">16</li>
-            <li class="calendarDay">17</li>
-            <li class="calendarDay">18</li>
-            <li class="calendarDay">19</li>
-            <li class="calendarDay">20</li>
-            <li class="calendarDay">21</li>
-            <li class="calendarDay">22</li>
-            <li class="calendarDay">23</li>
-            <li class="calendarDay">24</li>
-            <li class="calendarDay">25</li>
-            <li class="calendarDay">26</li>
-            <li class="calendarDay">27</li>
-            <li class="calendarDay">28</li>
-            <li class="calendarDay">29</li>
-            <li class="calendarDay">30</li>
-
-<li class="inactiv">1</li> 
-
--->
 </div>
       
       </div>
