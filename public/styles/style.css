@@ -34,13 +34,21 @@ body {
   flex-direction: column;
 }
 
-.monthPicker {
-  justify-content: center;
+.buttons {
   display: flex;
-  align-items: center;
+  text-align: center;
+  justify-content: center;
+  color: cornflowerblue;
   margin: 1rem;
   gap: 1rem;
+ 
 }
+
+.buttons, button { 
+  cursor: pointer;
+
+}
+
 
 .calender {
   display: grid;
@@ -53,6 +61,10 @@ body {
   padding: 0 1rem;
 }
 
+.day + #currentDay {
+  background-color:#e8f4fa;
+}
+
 .daysItem {
   display: flex;
   justify-content: center;
@@ -60,21 +72,19 @@ body {
 .day {
   border: 1px solid rgba(0, 0, 0, 0.264);
   display: flex;
-  justify-content: center;
-  padding: 1rem;
-  
+  flex-direction: column;
+  text-align: center;
+
+  padding: 3rem;
+  margin: 5px;
+  cursor: pointer;
 }
 
-/* 
-.inactiv { 
-  border: 1px solid rgba(0, 0, 0, 0.264);
-  opacity: 0.4;
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
-
+.day:hover {
+  background-color: #e8faed;
 }
- */
+
+
 
 
 .toDoContainer {
