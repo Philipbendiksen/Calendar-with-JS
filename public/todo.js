@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateUI() {
     console.log("todoList:", todoList);
-    // todoList.innerHTML = "";
+    todoList.innerHTML = "";
 
     todos.forEach((todoItem) => {
       console.log("Adding todoItem to UI:", todoItem);
@@ -76,8 +76,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     localStorage.setItem("todos", JSON.stringify(todos));
 
-    todoList.removeChild(todoElement);
-
     updateUI();
   }
 
@@ -92,14 +90,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     const todayList = document.getElementById("todayEvents");
-    todayList.innerHTML = "<strong>Dagens händelser:</strong>";
 
-    todayEvents.forEach((todoItem) => {
-      const listItem = document.createElement("li");
-      listItem.innerHTML = `<strong>${todoItem.title}</strong> - ${todoItem.date}`;
-      todayList.appendChild(listItem);
-    });
+    if (todayList) {
+      todayList.innerHTML = "<strong>Dagens händelser:</strong>";
+
+      todayEvents.forEach((todoItem) => {
+        const listItem = document.createElement("li");
+        listItem.innerHTML = `<strong>${todoItem.title}</strong> - ${todoItem.date}`;
+        todayList.appendChild(listItem);
+      });
+    } else {
+    }
   }
-
-  updateUI();
 });
