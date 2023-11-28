@@ -29,9 +29,11 @@
         <div class="welcomeDay">Monday</div>
         <div class="welcomeTime">11.11</div>
         <div class="welcomeDate">2023-09-09</div>
-       3. Skapa och designa välkomstsegmentet (delen ovanför todo-listan) med tid, veckodag och datum presenteras. (G) -->
+
+   3. Skapa och designa välkomstsegmentet (delen ovanför todo-listan) med tid, veckodag och datum presenteras. (G) -->
+
        <!-- </div>
-    </header>  -->
+    </header>  --> 
     <main>
       <aside>
         <div class="welcomeSegment-desktop" data-cy="welcome-segment">
@@ -40,22 +42,21 @@
           <div class="welcomeDate">2023-09-09</div>
 
         </div>
-        <div class="toDoContainer">
+
+        <div class="toDoContainer" id="toDoContainer">
           <div class="toDo-activeDay">
             <span id="activeDate">ACTIVE DATE</span>
             <span
               class="material-symbols-outlined"
               data-cy="todo-reveal-form"
-              id="btnOpenPopUp"
-            >
+              id="btnOpenPopUp">
               add
             </span>
           </div>
+          <ul id="todayEvents">
+            
+          </ul>
           <div class="toDoItems" data-cy="todo-list">
-            <div class="toDoItems-details">
-              <div>Gå till Borås Djurpark 🦁</div>
-              <div>15:00</div>
-            </div>
             <div class="toDoItems-actions">
               <span class="material-symbols-outlined" id="oscarTest"> delete </span>
               <span class="material-symbols-outlined"> edit </span>
@@ -63,10 +64,6 @@
           </div>
 
           <div class="toDoItems" data-cy="todo-list">
-            <div class="toDoItems-details">
-              <div>Gå till Borås Djurpark 🦁</div>
-              <div>15:00</div>
-            </div>
             <div class="toDoItems-actions">
               <span class="material-symbols-outlined"> delete </span>
               <span class="material-symbols-outlined"> edit </span>
@@ -74,10 +71,6 @@
           </div>
 
           <div class="toDoItems" data-cy="calendar-cell-todos">
-            <div class="toDoItems-details">
-              <div>Dra till andra lång 🍺</div>
-              <div>19:00</div>
-            </div>
             <div class="toDoItems-actions">
               <span
                 class="material-symbols-outlined"
@@ -93,35 +86,66 @@
               </span>
             </div>
           </div>
+
         </div>
+
+
       </aside>
+
+
       <div class="calendarContainer">
-        <div class="monthPicker">
-          <div class="arrowLeft">
-            <span class="material-symbols-outlined" data-cy="prev-month">
-              arrow_back
-            </span>
+
+        <div id="seeDate">
+
+            <div class="buttons">
+
+              <button id="lastMonth">Last month</button> 
+
+              <div id="Monthdisplay">  </div>
+
+              <button id="nextMonth">Next month</button>
+      
+            </div>
+
+        </div>
+
+
+
+
+
+  <!--       <div class="monthPicker" id="monthPicker">
+
+          <div data-cy="prev-month">
+           <button id="arrowLeft" > </button>
           </div>
 
           <div class="currentMonth"><span>NOVEMBER</span></div>
-          <div class="arrowRight">
-            <span class="material-symbols-outlined" data-cy="next-month">
-              arrow_forward
-            </span>
-          </div>
+
+ 
+           <div class="material-symbols-outlined" data-cy="next-month">
+              <button id="arrowRight"> </button>
+           </div>
+        </div> -->
+
+
+        <div class="days" id="calenderDay">
+          <div class="daysItem" data-cy="calendar-cell">MÅN</div>
+          <div class="daysItem" data-cy="calendar-cell">TIS</div>
+          <div class="daysItem" data-cy="calendar-cell">ONS</div>
+          <div class="daysItem" data-cy="calendar-cell">TORS</div>
+          <div class="daysItem" data-cy="calendar-cell">FRE</div>
+          <div class="daysItem" data-cy="calendar-cell">LÖRD</div>
+          <div class="daysItem" data-cy="calendar-cell">SÖND</div>
         </div>
-        <div class="days" id="calenderDay"  >
-          <div class="daysItem" data-cy="calendar-cell">Mån</div>
-          <div class="daysItem" data-cy="calendar-cell">Tis</div>
-          <div class="daysItem" data-cy="calendar-cell">Ons</div>
-          <div class="daysItem" data-cy="calendar-cell">Tor</div>
-          <div class="daysItem" data-cy="calendar-cell">Fre</div>
-          <div class="daysItem" data-cy="calendar-cell">Lör</div>
-          <div class="daysItem" data-cy="calendar-cell">Sön</div>
-        </div>
-      <div>
-          <div class="calender" id="calenderNumber" data-cy="calendar-cell">
-    </div>  
+ <div>
+
+
+
+          <div class="calender" id="calenderNumber" data-cy="calendar-cell">   <!-- Dagar genererade med JS -->
+
+
+</div>
+      
       </div>
 
       <div class="toDoModal hide" id="modal-popUp">
@@ -156,5 +180,6 @@
         <button id="notiModalBtn2">btn2</button>
       </div>
     </div>
+
   </body>
 </html>
