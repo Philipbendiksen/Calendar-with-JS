@@ -45,7 +45,6 @@ function createWelcomeSegment() {
   const year = now.getFullYear();
   const dateString = year + "-" + month + "-" + date;
   welcomeDateDiv.textContent = dateString;
-
   welcomeMobile.appendChild(welcomeDateDiv);
 
   function updateWelcomeTime() {
