@@ -1,29 +1,24 @@
 function createWelcomeSegment() {
   const header = document.createElement("header");
-
   document.body.prepend(header);
 
   const titleDiv = document.createElement("div");
   titleDiv.className = "title";
   titleDiv.innerHTML = "SEPO kalender";
-
   header.appendChild(titleDiv);
 
   const iconDiv = document.createElement("div");
   iconDiv.className = "seasonalIcon";
   iconDiv.textContent = "⛄️❄️";
-
   header.appendChild(iconDiv);
 
   const welcomeMobile = document.createElement("div");
   welcomeMobile.className = "welcomeSegment-mobile";
   welcomeMobile.setAttribute("data-cy", "welcome-segment");
-  
   header.appendChild(welcomeMobile);
 
   const welcomeDayDiv = document.createElement("div");
   welcomeDayDiv.className = "welcomeDay";
-
   const dayNames = [
     "Monday",
     "Tuesday",
@@ -36,13 +31,11 @@ function createWelcomeSegment() {
   const now = new Date();
   const day = dayNames[now.getDay()];
   welcomeDayDiv.textContent = day;
-
-  header.appendChild(welcomeDayDiv);
+  welcomeMobile.appendChild(welcomeDayDiv);
 
   const welcomeTimeDiv = document.createElement("div");
   welcomeTimeDiv.className = "welcomeTime";
-
-  header.appendChild(welcomeTimeDiv);
+  welcomeMobile.appendChild(welcomeTimeDiv);
 
   const welcomeDateDiv = document.createElement("div");
   welcomeDateDiv.className = "welcomeDate";
@@ -53,7 +46,7 @@ function createWelcomeSegment() {
   const dateString = year + "-" + month + "-" + date;
   welcomeDateDiv.textContent = dateString;
 
-  header.appendChild(welcomeDateDiv);
+  welcomeMobile.appendChild(welcomeDateDiv);
 
   function updateWelcomeTime() {
     const now = new Date();
@@ -66,4 +59,3 @@ function createWelcomeSegment() {
 
   setInterval(updateWelcomeTime, 60000); // 60000 milliseconds = 1 minute
 }
-
