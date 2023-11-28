@@ -46,10 +46,39 @@ document.addEventListener("DOMContentLoaded", function () {
     todos.forEach((todoItem) => {
       console.log("Adding todoItem to UI:", todoItem);
       const listItem = document.createElement("li");
-      listItem.innerHTML = `<strong>${todoItem.title}</strong> - ${todoItem.date}`;
+
+      const deleteIcon = document.createElement("span");
+      deleteIcon.className = "material-symbols-outlined";
+      deleteIcon.dataset.cy = "delete-todo-button";
+      deleteIcon.innerText = "delete";
+
+      deleteIcon.addEventListener("click", function () {
+        deleteTodoItem(todoItem);
+      });
+
+      //listItem.innerHTML = `<strong>${todoItem.title}</strong> - ${todoItem.date}`;
+
+      const todoText = document.createElement("span");
+      todoText.innerHTML = `<strong>${todoItem.title}</strong> - ${todoItem.date}`;
+
+      listItem.appendChild(deleteIcon);
+      listItem.appendChild(todoText);
+
       todoList.appendChild(listItem);
     });
     showTodayEvents();
+  }
+
+  function deleteTodoItem(todoItem) {
+    const index = todos.indexOf(todoItem);
+
+    todos.splice(index, 1);
+
+    localStorage.setItem("todos", JSON.stringify(todos));
+
+    todoList.removeChild(todoElement);
+
+    updateUI();
   }
 
   function showTodayEvents() {
