@@ -11,6 +11,8 @@
     <script src="today.js" defer></script>
     <script src="welcome.js" defer></script>
     <script src="todo.js" defer></script>
+    <script src="deleteModal.js"></script>
+    <link rel="shortcut icon" href="#" /> <!-- för att få bort favicon popup i konsol -->
     <link rel="stylesheet" href="styles/style.css" />
     <link
       rel="stylesheet"
@@ -56,7 +58,7 @@
           </ul>
           <div class="toDoItems" data-cy="todo-list">
             <div class="toDoItems-actions">
-              <span class="material-symbols-outlined"> delete </span>
+              <span class="material-symbols-outlined" id="oscarTest"> delete </span>
               <span class="material-symbols-outlined"> edit </span>
             </div>
           </div>
@@ -118,6 +120,7 @@
           </div>
 
           <div class="currentMonth"><span>NOVEMBER</span></div>
+
  
            <div class="material-symbols-outlined" data-cy="next-month">
               <button id="arrowRight"> </button>
@@ -167,6 +170,16 @@
           <button id="btnSave" data-cy="save-todo-button">SAVE</button>
         </div>
       </div>
-    </main>    
+    </main>
+    <div class="modalBackdrop-show hide" id="modalBackdrop"></div>
+    <div class="notificationModal hide" id="notificationModal">
+      <p id="notiModalTitle">title</p>
+      <p id="notiModalQuestion">Vill du verkligen ta bort händelse?</p>
+      <div class="buttonDiv">
+        <button id="notiModalBtn1">btn1</button>
+        <button id="notiModalBtn2">btn2</button>
+      </div>
+    </div>
+
   </body>
 </html>
