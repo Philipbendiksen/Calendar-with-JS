@@ -37,12 +37,12 @@ function createWelcomeSegment() {
   const day = dayNames[now.getDay()];
   welcomeDayDiv.textContent = day;
 
-  header.appendChild(welcomeDayDiv);
+  welcomeMobile.appendChild(welcomeDayDiv);
 
   const welcomeTimeDiv = document.createElement("div");
   welcomeTimeDiv.className = "welcomeTime";
 
-  header.appendChild(welcomeTimeDiv);
+  welcomeMobile.appendChild(welcomeTimeDiv);
 
   const welcomeDateDiv = document.createElement("div");
   welcomeDateDiv.className = "welcomeDate";
@@ -53,7 +53,7 @@ function createWelcomeSegment() {
   const dateString = year + "-" + month + "-" + date;
   welcomeDateDiv.textContent = dateString;
 
-  header.appendChild(welcomeDateDiv);
+  welcomeMobile.appendChild(welcomeDateDiv);
 
   function updateWelcomeTime() {
     const now = new Date();
