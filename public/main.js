@@ -9,7 +9,3 @@ function main() {
   document.querySelector("aside").prepend(createWelcomeSegment("welcomeSegment-desktop"));
 }
 
-const oscartest = document.querySelector("#oscarTest");
-oscartest.addEventListener("click", () => {
-  confirmationModal("HEJSAN", "VILL DU TA BORT", "JA", "AVBRYT");
-});
