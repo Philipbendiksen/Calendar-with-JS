@@ -4,7 +4,9 @@ function main() {
   PopUp();
   // confirmationModal("testtitel", "testfråga", "ja", "nej");
   updateActiveDate(todayString());
-  createWelcomeSegment();
+  createCommonHeader();
+  document.querySelector("header").appendChild(createWelcomeSegment("welcomeSegment-mobile"));
+  document.querySelector("aside").prepend(createWelcomeSegment("welcomeSegment-desktop"));
 }
 
 const oscartest = document.querySelector("#oscarTest");
