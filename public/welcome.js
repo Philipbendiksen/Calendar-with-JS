@@ -7,16 +7,16 @@ function createCommonHeader(){
   titleDiv.innerHTML = "SEPO kalender";
   header.appendChild(titleDiv);
 
-  const iconDiv = document.createElement("div");
-  iconDiv.className = "seasonalIcon";
-  iconDiv.textContent = "⛄️❄️";
-  header.appendChild(iconDiv);
 }
 
 function createWelcomeSegment(welcomeSegmentClassName) {
   const welcomeSegment = document.createElement("div");
   welcomeSegment.className = welcomeSegmentClassName;
   welcomeSegment.setAttribute("data-cy", "welcome-segment");
+
+  const dayAndIconDiv = document.createElement("div");
+  dayAndIconDiv.className = "dayAndSeasonIcon";
+  welcomeSegment.appendChild(dayAndIconDiv);
 
   const welcomeDayDiv = document.createElement("div");
   welcomeDayDiv.className = "welcomeDay";
@@ -32,7 +32,12 @@ function createWelcomeSegment(welcomeSegmentClassName) {
   const now = new Date();
   const day = dayNames[now.getDay() - 1];
   welcomeDayDiv.textContent = day;
-  welcomeSegment.appendChild(welcomeDayDiv);
+  dayAndIconDiv.appendChild(welcomeDayDiv);
+
+  const iconDiv = document.createElement("div");
+  iconDiv.className = "seasonalIcon";
+  iconDiv.textContent = "⛄️❄️";
+  dayAndIconDiv.appendChild(iconDiv); 
 
   const welcomeTimeDiv = document.createElement("div");
   welcomeTimeDiv.className = "welcomeTime";
