@@ -91,7 +91,7 @@ function updateUI() {
 
     const deleteIcon = document.createElement("span");
     deleteIcon.className = "material-symbols-outlined";
-    deleteIcon.dataset.cy = "delete-todo-button";
+    deleteIcon.setAttribute("data-cy", "delete-todo-button");
     deleteIcon.innerText = "delete";
 
     deleteIcon.addEventListener("click", function () {
