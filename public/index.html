@@ -29,19 +29,17 @@
         <div class="welcomeDay">Monday</div>
         <div class="welcomeTime">11.11</div>
         <div class="welcomeDate">2023-09-09</div>
-
-   3. Skapa och designa välkomstsegmentet (delen ovanför todo-listan) med tid, veckodag och datum presenteras. (G) -->
-
+        3. Skapa och designa välkomstsegmentet (delen ovanför todo-listan) med tid, veckodag och datum presenteras. (G) -->
        <!-- </div>
     </header>  --> 
     <main>
       <aside>
-        <div class="welcomeSegment-desktop" data-cy="welcome-segment">
+        <!-- <div class="welcomeSegment-desktop" data-cy="welcome-segment">
           <div class="welcomeDay">Monday</div>
           <div class="welcomeTime">11.11</div>
           <div class="welcomeDate">2023-09-09</div>
 
-        </div>
+        </div> -->
 
         <div class="toDoContainer" id="toDoContainer" data-cy="todo-list">
           <div class="toDo-activeDay">
@@ -93,7 +91,7 @@
       </aside>
 
 
-      <div class="calendarContainer">
+      <div class="calendarContainer" data-cy="prev-month">
 
         <div id="seeDate">
 
@@ -128,7 +126,7 @@
         </div> -->
 
 
-        <div class="days" id="calenderDay">
+        <div class="days" id="calenderDay" >
           <div class="daysItem" data-cy="calendar-cell">MÅN</div>
           <div class="daysItem" data-cy="calendar-cell">TIS</div>
           <div class="daysItem" data-cy="calendar-cell">ONS</div>
@@ -138,7 +136,7 @@
           <div class="daysItem" data-cy="calendar-cell">SÖND</div>
         </div>
  <div>
-          <div class="calender" id="calenderNumber" data-cy="calendar-cell" >   <!-- Dagar genererade med JS -->
+          <div class="calender" id="calenderNumber" data-cy="calendar-body" data-cy="calendar-cell" >   <!-- Dagar genererade med JS -->
 
 
 </div>
