@@ -22,6 +22,10 @@ body {
   height: 100svh;
 }
 
+#todayEvents ul li {
+  list-style-type: none;
+}
+
 .title,
 .welcomeSegment-mobile,
 .seasonalIcon {
@@ -50,14 +54,12 @@ body {
   color: cornflowerblue;
   margin: 1rem;
   gap: 1rem;
- 
 }
 
-.buttons, button { 
+.buttons,
+button {
   cursor: pointer;
-
 }
-
 
 .calender {
   display: grid;
@@ -71,7 +73,7 @@ body {
 }
 
 .day + #currentDay {
-  background-color:#e8f4fa;
+  background-color: #e8f4fa;
 }
 
 .daysItem {
