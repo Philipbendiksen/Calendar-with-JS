@@ -18,9 +18,7 @@ const weekdays = [
 function load() {
   const dt = new Date();
 
-  if (nav !== 0) {
-    dt.setMonth(new Date().getMonth() + nav);
-  }
+  if (nav !== 0) { dt.setMonth(new Date().getMonth() + nav); }
 
   const day = dt.getDate();
   const month = dt.getMonth();
@@ -40,13 +38,14 @@ function load() {
     day: "numeric",
   });
 
-  console.log(
-    dateString
-  ); /*  kollar vilken dag som är första dagen i månaden, vilket stämmer, men kanlendern börjar inte där  */
+  console.log(dateString); /*  kollar vilken dag som är första dagen i månaden, vilket stämmer, men kanlendern börjar inte där  */
 
-  const paddingDays = weekdays.indexOf(dateString.split(", ")[0]);
+  let paddingDays = dt.getDay() - 1;
+  if (paddingDays === -1) {
+    paddingDays = 6;
+  }
 
-  console.log(paddingDays); /* Loggar - 1 ska logga 5, (stämmer inte)  */
+  console.log(paddingDays); /* Loggar - 1, borde logga 3?, första dagen i Nov är en onsdag (stämmer inte)  */
 
   document.getElementById("Monthdisplay").innerText = `${dt.toLocaleDateString(
     "en-us",
@@ -55,7 +54,7 @@ function load() {
 
   calendar.innerHTML = ""; /* skapar en emty string som nollställer kalendern */
 
-  /* Detta beskrivs 24:22 i videon  */
+
   for (let i = 1; i <= paddingDays + daysInMonth; i++) {
     const daySquare = document.createElement("div");
     daySquare.classList.add("day");
