@@ -1,3 +1,7 @@
+function initWelcomeSegment() {
+  document.querySelector("header").appendChild(createWelcomeSegment("welcomeSegment-mobile"));
+  document.querySelector("aside").prepend(createWelcomeSegment("welcomeSegment-desktop"));
+}
 function createCommonHeader(){
   const header = document.createElement("header");
   document.body.prepend(header);
@@ -6,7 +10,6 @@ function createCommonHeader(){
   titleDiv.className = "title";
   titleDiv.innerHTML = "SEPO kalender";
   header.appendChild(titleDiv);
-
 }
 
 function createWelcomeSegment(welcomeSegmentClassName) {
