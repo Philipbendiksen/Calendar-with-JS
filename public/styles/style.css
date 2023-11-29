@@ -28,6 +28,15 @@ body {
   margin: 1rem;
 }
 
+.dayAndSeasonIcon {
+  display: flex;
+}
+
+.seasonalIcon {
+  margin: 0;
+  padding-left: 5px;
+}
+
 .calendarContainer {
   width: 100%;
   display: flex;
