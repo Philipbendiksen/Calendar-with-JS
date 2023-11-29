@@ -6,14 +6,8 @@ function main() {
   PopUp();
   // confirmationModal("testtitel", "testfråga", "ja", "nej");
 
-
-
   initTodos();
-
-
 
   createCommonHeader();
   initWelcomeSegment();
 }
-
-
