@@ -68,9 +68,8 @@ function showTodayEvents() {
   }
 }
 
-const newEventModal = document.getElementById("modal-popUp");
-
 function openModal(date) {
+  const newEventModal = document.getElementById("modal-popUp");
   clicked = date;
 
   const eventForDay = events.find((e) => e.date === clicked);
