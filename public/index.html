@@ -21,27 +21,9 @@
     />
   </head> 
   <body>
-<!-- Test -->
-    <!-- <template> -->
-    <!-- <header>
-      <div class="title">SEPO Kalender</div>
-      <div class="seasonalIcon">⛄️❄️</div>
-      <div class="welcomeSegment-mobile" data-cy="welcome-segment">
-        <div class="welcomeDay">Monday</div>
-        <div class="welcomeTime">11.11</div>
-        <div class="welcomeDate">2023-09-09</div>
-        3. Skapa och designa välkomstsegmentet (delen ovanför todo-listan) med tid, veckodag och datum presenteras. (G) -->
-       <!-- </div>
-    </header>  --> 
+
     <main>
       <aside>
-        <!-- <div class="welcomeSegment-desktop" data-cy="welcome-segment">
-          <div class="welcomeDay">Monday</div>
-          <div class="welcomeTime">11.11</div>
-          <div class="welcomeDate">2023-09-09</div>
-
-        </div> -->
-
         <div class="toDoContainer" id="toDoContainer" data-cy="todo-list">
           <div class="toDo-activeDay">
             <span id="activeDate">ACTIVE DATE</span>
@@ -55,77 +37,24 @@
           <ul id="todayEvents">
             
           </ul>
-          <div class="toDoItems" data-cy="todo-list">
-            <div class="toDoItems-actions">
-              <span class="material-symbols-outlined" id="oscarTest"> delete </span>
-              <span class="material-symbols-outlined"> edit </span>
-            </div>
-          </div>
-
-          <div class="toDoItems" data-cy="todo-list">
-            <div class="toDoItems-actions">
-              <span class="material-symbols-outlined"> delete </span>
-              <span class="material-symbols-outlined"> edit </span>
-            </div>
-          </div>
-
-          <div class="toDoItems" data-cy="calendar-cell-todos">
-            <div class="toDoItems-actions">
-              <span
-                class="material-symbols-outlined"
-                data-cy="delete-todo-button"
-              >
-                delete
-              </span>
-              <span
-                class="material-symbols-outlined"
-                data-cy="edit-todo-button"
-              >
-                edit
-              </span>
-            </div>
-          </div>
-
         </div>
-
-
       </aside>
 
 
       <div class="calendarContainer" data-cy="prev-month">
-
         <div id="seeDate">
-
             <div class="buttons">
-
-              <button id="lastMonth">Last month</button> 
-
+              <div id="lastMonth"><span class="material-symbols-outlined">
+                arrow_back
+                </span></div> 
               <div id="Monthdisplay">  </div>
-
-              <button id="nextMonth">Next month</button>
-      
+              <div id="nextMonth">
+                <span class="material-symbols-outlined">
+                  arrow_forward
+                  </span>
+              </div>
             </div>
-
         </div>
-
-
-
-
-
-  <!--       <div class="monthPicker" id="monthPicker">
-
-          <div data-cy="prev-month">
-           <button id="arrowLeft" > </button>
-          </div>
-
-          <div class="currentMonth"><span>NOVEMBER</span></div>
-
- 
-           <div class="material-symbols-outlined" data-cy="next-month">
-              <button id="arrowRight"> </button>
-           </div>
-        </div> -->
-
 
         <div class="days" id="calenderDay" >
           <div class="daysItem" data-cy="calendar-cell">MÅN</div>
@@ -136,11 +65,7 @@
           <div class="daysItem" data-cy="calendar-cell">LÖRD</div>
           <div class="daysItem" data-cy="calendar-cell">SÖND</div>
         </div>
- <div>
-          <div class="calender" id="calenderNumber" data-cy="calendar-body" data-cy="calendar-cell" >   <!-- Dagar genererade med JS -->
-
-
-</div>
+          <div class="calender" id="calenderNumber" data-cy="calendar-body" data-cy="calendar-body" >   <!-- Dagar genererade med JS -->
       
       </div>
 
