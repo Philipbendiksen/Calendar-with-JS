@@ -67,8 +67,9 @@ function showTodayEvents() {
   }
 }
 
+const newEventModal = document.getElementById("modal-popUp");
+
 function openModal(date) {
-  const newEventModal = document.getElementById("modal-popUp");
   clicked = date;
 
   const eventForDay = events.find((e) => e.date === clicked);
@@ -90,7 +91,7 @@ function updateUI() {
 
     const deleteIcon = document.createElement("span");
     deleteIcon.className = "material-symbols-outlined";
-    deleteIcon.setAttribute("data-cy", "delete-todo-button");
+    deleteIcon.dataset.cy = "delete-todo-button";
     deleteIcon.innerText = "delete";
 
     deleteIcon.addEventListener("click", function () {
