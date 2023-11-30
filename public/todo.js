@@ -68,8 +68,9 @@ function showTodayEvents() {
   }
 }
 
+const newEventModal = document.getElementById("modal-popUp");
+
 function openModal(date) {
-  const newEventModal = document.getElementById("modal-popUp");
   clicked = date;
 
   const eventForDay = events.find((e) => e.date === clicked);
@@ -91,7 +92,7 @@ function updateUI() {
 
     const deleteIcon = document.createElement("span");
     deleteIcon.className = "material-symbols-outlined";
-    deleteIcon.setAttribute("data-cy", "delete-todo-button");
+    deleteIcon.dataset.cy = "delete-todo-button";
     deleteIcon.innerText = "delete";
 
     deleteIcon.addEventListener("click", function () {
@@ -113,9 +114,12 @@ function updateUI() {
 }
 
 /* DAVID
+ska allting ligga i DOM?
 Hur lägger jag till class - om inte li.classList.add("") funkar?
 Hur får jag bort punkterna?
 Ska man använda innerHTML = ""; ???
+Varför dyker dom upp förens efter jag lägger till en ny, försvinner vid omladdning?
+
 Hur kan jag på bästa sätt komma in i den igen, för att redigera?
 */
 
