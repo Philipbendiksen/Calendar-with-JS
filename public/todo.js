@@ -82,8 +82,8 @@ function openModal(date) {
 }
 
 function updateUI() {
-  const todoList = document.getElementById("toDoContainer");
-  //todoList.innerHTML = "";
+  const todoList = document.getElementById("itemsContainer");
+  todoList.innerHTML = "";
 
   todos.forEach((todoItem) => {
     console.log("Adding todoItem to UI:", todoItem);
