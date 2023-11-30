@@ -7,7 +7,6 @@ function main() {
   // confirmationModal("testtitel", "testfråga", "ja", "nej");
 
   initTodos();
-
   createCommonHeader();
   initWelcomeSegment();
 }

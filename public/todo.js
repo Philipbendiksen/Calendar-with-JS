@@ -53,7 +53,6 @@ function showTodayEvents() {
       todoDate.getDate() === currentDay
     );
   });
-
   const todayList = document.getElementById("todayEvents");
 
   if (todayList) {
@@ -114,11 +113,11 @@ function updateUI() {
 }
 
 /* DAVID
-ska allting ligga i DOM?
+
 Hur lägger jag till class - om inte li.classList.add("") funkar?
 Hur får jag bort punkterna?
 Ska man använda innerHTML = ""; ???
-Varför dyker dom upp förens efter jag lägger till en ny, försvinner vid omladdning?
+
 
 Hur kan jag på bästa sätt komma in i den igen, för att redigera?
 */
