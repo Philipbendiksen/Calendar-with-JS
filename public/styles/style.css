@@ -22,10 +22,6 @@ body {
   height: 100svh;
 }
 
-#todayEvents ul li {
-  list-style-type: none;
-}
-
 .title,
 .welcomeSegment-mobile,
 .seasonalIcon {
@@ -118,6 +114,7 @@ button {
   padding: 1rem;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 9px;
 }
 .toDoItems-details {
   display: flex;

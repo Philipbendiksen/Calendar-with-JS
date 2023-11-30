@@ -14,19 +14,23 @@ function addTodo() {
   const notes = document.getElementById("todoNotes").value;
   console.log("Save button clicked");
 
-  //skapa en ny todo-objekt
-  const newTodo = {
-    title: title,
-    place: place,
-    date: date,
-    notes: notes,
-  };
-  // lägg tilli arrayen
-  todos.push(newTodo);
-  // spara den uppdaterade
-  localStorage.setItem("todos", JSON.stringify(todos));
+  if (title === "" || date === "") {
+    title.placeholder == "Fyll i något...";
+  } else {
+    //skapa en ny todo-objekt
+    const newTodo = {
+      title: title,
+      place: place,
+      date: date,
+      notes: notes,
+    };
+    // lägg tilli arrayen
+    todos.push(newTodo);
+    // spara den uppdaterade
+    localStorage.setItem("todos", JSON.stringify(todos));
 
-  updateUI();
+    updateUI();
+  }
 }
 
 function deleteTodoItem(todoItem) {
@@ -88,6 +92,7 @@ function updateUI() {
   todos.forEach((todoItem) => {
     console.log("Adding todoItem to UI:", todoItem);
     const listItem = document.createElement("div");
+    listItem.classList.add("toDoItems");
 
     const deleteIcon = document.createElement("span");
     deleteIcon.className = "material-symbols-outlined";
