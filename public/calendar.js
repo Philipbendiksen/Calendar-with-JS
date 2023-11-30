@@ -44,7 +44,7 @@ function load() {
     dateString
   ); /*  kollar vilken dag som är första dagen i månaden, vilket stämmer, men kanlendern börjar inte där  */
 
-  let paddingDays = dt.getDay() - 1;
+  let paddingDays = dt.getDay() - 2;
   if (paddingDays === -1) {
     paddingDays = 6;
   }
@@ -60,7 +60,7 @@ function load() {
   for (let i = 1; i <= paddingDays + daysInMonth; i++) {
     const daySquare = document.createElement("div");
     const dayWithinSquare = document.createElement("div");
-    dayWithinSquare.dataset.cy = "calendar-cell-date ";
+    dayWithinSquare.dataset.cy = "calendar-cell-date";
     daySquare.classList.add("day");
     daySquare.dataset.cy = "calendar-cell";
 
