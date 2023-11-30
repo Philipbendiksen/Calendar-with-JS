@@ -40,7 +40,7 @@ function load() {
 
   console.log(dateString); /*  kollar vilken dag som är första dagen i månaden, vilket stämmer, men kanlendern börjar inte där  */
 
-  let paddingDays = dt.getDay() - 1;
+  let paddingDays = dt.getDay() - 2;
   if (paddingDays === -1) {
     paddingDays = 6;
   }
@@ -66,7 +66,7 @@ function load() {
       daySquare.addEventListener("click", () => console.log("click"));
 
       if (i - paddingDays === day && nav === 0) {
-        /* Ska visa aktuell dag (funkar och visar rätt dag, vilket är konstigt) */
+        /* Ska visa aktuell dag  */
 
         daySquare.id = "currentDay";
       }
