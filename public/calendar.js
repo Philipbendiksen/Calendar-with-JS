@@ -18,7 +18,9 @@ const weekdays = [
 function load() {
   const dt = new Date();
 
-  if (nav !== 0) { dt.setMonth(new Date().getMonth() + nav); }
+  if (nav !== 0) {
+    dt.setMonth(new Date().getMonth() + nav);
+  }
 
   const day = dt.getDate();
   const month = dt.getMonth();
@@ -38,30 +40,32 @@ function load() {
     day: "numeric",
   });
 
-  console.log(dateString); /*  kollar vilken dag som är första dagen i månaden, vilket stämmer, men kanlendern börjar inte där  */
+  console.log(
+    dateString
+  ); /*  kollar vilken dag som är första dagen i månaden, vilket stämmer, men kanlendern börjar inte där  */
 
   let paddingDays = dt.getDay() - 1;
   if (paddingDays === -1) {
     paddingDays = 6;
   }
 
-  console.log(paddingDays); /* Loggar - 1, borde logga 3?, första dagen i Nov är en onsdag (stämmer inte)  */
-
   document.getElementById("Monthdisplay").innerText = `${dt.toLocaleDateString(
     "en-us",
     { month: "long" }
   )} ${year}`;
 
-  calendar.innerHTML = ""; /* skapar en emty string som nollställer kalendern */
-
+  calendar.innerHTML =
+    ""; /* skapar en empty string som nollställer kalendern */
 
   for (let i = 1; i <= paddingDays + daysInMonth; i++) {
     const daySquare = document.createElement("div");
+    const dayWithinSquare = document.createElement("div");
+    dayWithinSquare.dataset.cy = "calendar-cell-date ";
     daySquare.classList.add("day");
-    daySquare.dataset.cy = "calendar-cell-date ";
+    daySquare.dataset.cy = "calendar-cell";
 
     if (i > paddingDays) {
-      daySquare.innerText = i - paddingDays;
+      dayWithinSquare.innerText = i - paddingDays;
 
       daySquare.addEventListener("click", () => console.log("click"));
 
@@ -73,10 +77,10 @@ function load() {
     } else {
       daySquare.classList.add("padding");
     }
-
+    daySquare.appendChild(dayWithinSquare);
     calendar.appendChild(
       daySquare
-    ); /*  appendChild används för att skriva ut JS på sidan  */
+    ); /* appendChild används för att skriva ut JS på sidan */
   }
 }
 
