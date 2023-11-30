@@ -59,7 +59,7 @@ function showTodayEvents() {
     todayList.innerHTML = "<strong>Dagens händelser:</strong>";
 
     todayEvents.forEach((todoItem) => {
-      const listItem = document.createElement("li");
+      const listItem = document.createElement("div");
       listItem.innerHTML = `<strong>${todoItem.title}</strong> - ${todoItem.date}`;
       todayList.appendChild(listItem);
     });
@@ -87,7 +87,7 @@ function updateUI() {
 
   todos.forEach((todoItem) => {
     console.log("Adding todoItem to UI:", todoItem);
-    const listItem = document.createElement("li");
+    const listItem = document.createElement("div");
 
     const deleteIcon = document.createElement("span");
     deleteIcon.className = "material-symbols-outlined";
