@@ -1,8 +1,12 @@
 function initWelcomeSegment() {
-  document.querySelector("header").appendChild(createWelcomeSegment("welcomeSegment-mobile"));
-  document.querySelector("aside").prepend(createWelcomeSegment("welcomeSegment-desktop"));
+  document
+    .querySelector("header")
+    .appendChild(createWelcomeSegment("welcomeSegment-mobile"));
+  document
+    .querySelector("aside")
+    .prepend(createWelcomeSegment("welcomeSegment-desktop"));
 }
-function createCommonHeader(){
+function createCommonHeader() {
   const header = document.createElement("header");
   document.body.prepend(header);
 
@@ -40,20 +44,16 @@ function createWelcomeSegment(welcomeSegmentClassName) {
   const iconDiv = document.createElement("div");
   iconDiv.className = "seasonalIcon";
   iconDiv.textContent = "⛄️❄️";
-  dayAndIconDiv.appendChild(iconDiv); 
+  dayAndIconDiv.appendChild(iconDiv);
 
   const welcomeTimeDiv = document.createElement("div");
   welcomeTimeDiv.className = "welcomeTime";
+  updateWelcomeTime();
   welcomeSegment.appendChild(welcomeTimeDiv);
 
   const welcomeDateDiv = document.createElement("div");
   welcomeDateDiv.className = "welcomeDate";
-
-  const date = now.getDate();
-  const month = now.getMonth();
-  const year = now.getFullYear();
-  const dateString = year + "-" + month + "-" + date;
-  welcomeDateDiv.textContent = dateString;
+  updateWelcomeDate();
   welcomeSegment.appendChild(welcomeDateDiv);
 
   function updateWelcomeTime() {
@@ -63,9 +63,18 @@ function createWelcomeSegment(welcomeSegmentClassName) {
     const timeString = hour + ":" + (minutes < 10 ? "0" : "") + minutes;
     welcomeTimeDiv.textContent = timeString;
   }
-  updateWelcomeTime();
+  setInterval(updateWelcomeTime, 1000);
 
-  setInterval(updateWelcomeTime, 60000); // 60000 milliseconds = 1 minute
+  function updateWelcomeDate() {
+    const now = new Date();
+    const date = now.getDate();
+    const month = now.getMonth() + 1;
+    const year = now.getFullYear();
+    const dateString = year + "-" + month + "-" + date;
+    welcomeDateDiv.textContent = dateString;
+  }
+
+  setInterval(updateWelcomeDate, 1000); //  updates every second
 
   return welcomeSegment;
 }
