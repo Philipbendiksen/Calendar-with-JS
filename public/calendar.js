@@ -44,7 +44,7 @@ function load() {
     dateString
   ); /*  kollar vilken dag som är första dagen i månaden, vilket stämmer, men kanlendern börjar inte där  */
 
-  let paddingDays = dt.getDay() - 2;
+  let paddingDays = dt.getDay() - 1;
   if (paddingDays === -1) {
     paddingDays = 6;
   }
@@ -72,7 +72,7 @@ function load() {
       if (i - paddingDays === day && nav === 0) {
         /* Ska visa aktuell dag  */
 
-        daySquare.id = "currentDay";
+        daySquare.className = "currentDay";
       }
     } else {
       daySquare.classList.add("padding");
