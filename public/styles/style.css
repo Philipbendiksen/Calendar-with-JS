@@ -72,9 +72,22 @@ button {
   padding: 0 1rem;
 }
 
-.day + #currentDay {
-  background-color: #e8f4fa;
+.currentDay {
+  border: 1px solid black;
+  max-height: 18px;
+  text-align: center;
+  padding: 57.2px 0;
+  margin: 0.3rem;
+  background-color: #e8f4fa; 
+  cursor: pointer;
+  transition: all .2s ease-in-out;
 }
+.currentDay:hover {
+  transform: scale(1.1);
+
+}
+
+
 
 .daysItem {
   display: flex;
