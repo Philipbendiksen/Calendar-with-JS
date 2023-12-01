@@ -14,19 +14,23 @@ function addTodo() {
   const notes = document.getElementById("todoNotes").value;
   console.log("Save button clicked");
 
-  //skapa en ny todo-objekt
-  const newTodo = {
-    title: title,
-    place: place,
-    date: date,
-    notes: notes,
-  };
-  // lägg tilli arrayen
-  todos.push(newTodo);
-  // spara den uppdaterade
-  localStorage.setItem("todos", JSON.stringify(todos));
+  if (title === "" || date === "") {
+    title.placeholder == "Fyll i något...";
+  } else {
+    //skapa en ny todo-objekt
+    const newTodo = {
+      title: title,
+      place: place,
+      date: date,
+      notes: notes,
+    };
+    // lägg tilli arrayen
+    todos.push(newTodo);
+    // spara den uppdaterade
+    localStorage.setItem("todos", JSON.stringify(todos));
 
-  updateUI();
+    updateUI();
+  }
 }
 
 function deleteTodoItem(todoItem) {
@@ -59,7 +63,7 @@ function showTodayEvents() {
     todayList.innerHTML = "<strong>Dagens händelser:</strong>";
 
     todayEvents.forEach((todoItem) => {
-      const listItem = document.createElement("li");
+      const listItem = document.createElement("div");
       listItem.innerHTML = `<strong>${todoItem.title}</strong> - ${todoItem.date}`;
       todayList.appendChild(listItem);
     });
@@ -81,13 +85,53 @@ function openModal(date) {
   }
 }
 
+function openEditModal(todoItem) {
+  const modal = document.getElementById("modal-popUp");
+  const btnSave = document.getElementById("btnSave");
+
+  document.getElementById("todoTitle").value = todoItem.title;
+  document.getElementById("todoPlace").value = todoItem.place;
+  document.getElementById("todoDate").value = todoItem.date;
+  document.getElementById("todoNotes").value = todoItem.notes;
+
+  btnSave.removeEventListener("click", addTodo);
+  btnSave.addEventListener("click", function () {
+    updateTodo(todoItem);
+  });
+
+  modal.style.display = "block";
+}
+
+function updateTodo(todoItem) {
+  const updatedTitle = document.getElementById("todoTitle").value;
+  const updatedPlace = document.getElementById("todoPlace").value;
+  const updatedDate = document.getElementById("todoDate").value;
+  const updatedNotes = document.getElementById("todoNotes").value;
+
+  todoItem.title = updatedTitle;
+  todoItem.place = updatedPlace;
+  todoItem.date = updatedDate;
+  todoItem.notes = updatedNotes;
+
+  localStorage.setItem("todos", JSON.stringify(todos));
+
+  closeEditModal();
+  updateUI();
+}
+
+function closeEditModal() {
+  const modal = document.getElementById("modal-popUp");
+  modal.style.display = "none";
+}
+
 function updateUI() {
-  const todoList = document.getElementById("toDoContainer");
-  //todoList.innerHTML = "";
+  const todoList = document.getElementById("itemsContainer");
+  todoList.innerHTML = "";
 
   todos.forEach((todoItem) => {
     console.log("Adding todoItem to UI:", todoItem);
-    const listItem = document.createElement("li");
+    const listItem = document.createElement("div");
+    listItem.classList.add("toDoItems");
 
     const deleteIcon = document.createElement("span");
     deleteIcon.className = "material-symbols-outlined";
@@ -98,12 +142,22 @@ function updateUI() {
       deleteTodoItem(todoItem);
     });
 
+    const editIcon = document.createElement("span");
+    editIcon.className = "material-symbols-outlined";
+    editIcon.dataset.cy = "edit-todo-button";
+    editIcon.innerText = "edit";
+
+    editIcon.addEventListener("click", function () {
+      openEditModal(todoItem);
+    });
+
     //listItem.innerHTML = `<strong>${todoItem.title}</strong> - ${todoItem.date}`;
 
     const todoText = document.createElement("span");
     todoText.innerHTML = `<strong>${todoItem.title}</strong> - ${todoItem.date}`;
 
     listItem.appendChild(deleteIcon);
+    listItem.appendChild(editIcon);
     listItem.appendChild(todoText);
 
     todoList.appendChild(listItem);
@@ -114,12 +168,6 @@ function updateUI() {
 
 /* DAVID
 
-Hur lägger jag till class - om inte li.classList.add("") funkar?
-Hur får jag bort punkterna?
-Ska man använda innerHTML = ""; ???
-
-
-Hur kan jag på bästa sätt komma in i den igen, för att redigera?
 */
 
 /*
