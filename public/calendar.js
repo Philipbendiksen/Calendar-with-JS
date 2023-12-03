@@ -4,7 +4,7 @@ let events = localStorage.getItem("events")
   ? JSON.parse(localStorage.getItem("events"))
   : [];
 
-const calendar = document.getElementById("calenderNumber");
+const calendar = document.getElementById("calendarNumber");
 const weekdays = [
   "Måndag",
   "Tisdag",
@@ -72,7 +72,7 @@ function load() {
       if (i - paddingDays === day && nav === 0) {
         /* Ska visa aktuell dag  */
 
-        daySquare.className = "currentDay";
+        daySquare.className = "currentDay day";
       }
     } else {
       daySquare.classList.add("padding");

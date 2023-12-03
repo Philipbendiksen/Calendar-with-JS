@@ -10,6 +10,7 @@
     <script src="calendar.js" defer ></script>
     <script src="modal.js" defer></script>
     <script src="welcome.js" defer></script>
+    <script src="confirmationModal.js"></script>
    
     <link rel="shortcut icon" href="#" /> <!-- för att få bort favicon popup i konsol -->
     <link rel="stylesheet" href="styles/style.css" />
@@ -56,7 +57,7 @@
             </div>
         </div>
 
-        <div class="days" id="calenderDay" >
+        <div class="days" id="calendarDay" >
           <div class="daysItem" data-cy="calendar-cell">MÅN</div>
           <div class="daysItem" data-cy="calendar-cell">TIS</div>
           <div class="daysItem" data-cy="calendar-cell">ONS</div>
@@ -65,7 +66,7 @@
           <div class="daysItem" data-cy="calendar-cell">LÖRD</div>
           <div class="daysItem" data-cy="calendar-cell">SÖND</div>
         </div>
-          <div class="calender" id="calenderNumber" data-cy="calendar-body" data-cy="calendar-body" >   <!-- Dagar genererade med JS -->
+          <div class="calendar" id="calendarNumber" data-cy="calendar-body" data-cy="calendar-body" >   <!-- Dagar genererade med JS -->
       
       </div>
 
@@ -95,7 +96,6 @@
     <div class="modalBackdrop-show hide" id="modalBackdrop"></div>
     <div class="notificationModal hide" id="notificationModal">
       <p id="notiModalTitle">title</p>
-      <p id="notiModalQuestion">Vill du verkligen ta bort händelse?</p>
       <div class="buttonDiv">
         <button id="notiModalBtn1">btn1</button>
         <button id="notiModalBtn2">btn2</button>
