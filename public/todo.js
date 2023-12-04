@@ -34,13 +34,17 @@ function addTodo() {
 }
 
 function deleteTodoItem(todoItem) {
-  const index = todos.indexOf(todoItem);
+  const title = `Vill du verkligen ta bort ${todoItem.title} ? `;
+  confirmationModal(title, "Ja", "Avbryt", deleteItem);
+  function deleteItem() {
+    const index = todos.indexOf(todoItem);
 
-  todos.splice(index, 1);
+    todos.splice(index, 1);
 
-  localStorage.setItem("todos", JSON.stringify(todos));
+    localStorage.setItem("todos", JSON.stringify(todos));
 
-  updateUI();
+    updateUI();
+  }
 }
 
 function showTodayEvents() {
@@ -131,7 +135,9 @@ function updateUI() {
   todos.forEach((todoItem) => {
     console.log("Adding todoItem to UI:", todoItem);
     const listItem = document.createElement("div");
-    listItem.classList.add("toDoItems");
+    const toDoIcons = document.createElement("div");
+    listItem.classList = "toDoItems";
+    toDoIcons.classList = "toDoIcons";
 
     const deleteIcon = document.createElement("span");
     deleteIcon.className = "material-symbols-outlined";
@@ -153,14 +159,16 @@ function updateUI() {
 
     //listItem.innerHTML = `<strong>${todoItem.title}</strong> - ${todoItem.date}`;
 
-    const todoText = document.createElement("span");
+    const todoText = document.createElement("div");
+    todoText.classList = "toDoTitles";
     todoText.innerHTML = `<strong>${todoItem.title}</strong> - ${todoItem.date}`;
 
-    listItem.appendChild(deleteIcon);
-    listItem.appendChild(editIcon);
     listItem.appendChild(todoText);
+    toDoIcons.appendChild(deleteIcon);
+    toDoIcons.appendChild(editIcon);
 
     todoList.appendChild(listItem);
+    listItem.appendChild(toDoIcons);
   });
   //todoList.innerHTML = "";
   showTodayEvents();
