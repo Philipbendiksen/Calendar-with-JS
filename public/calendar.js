@@ -59,6 +59,8 @@ function load() {
   calendar.innerHTML =
     ""; /* skapar en empty string som nollställer kalendern */
 
+  updateTodosCount();
+
   for (let i = 1; i <= paddingDays + daysInMonth; i++) {
     const daySquare = document.createElement("div");
     const dayWithinSquare = document.createElement("div");
@@ -67,9 +69,15 @@ function load() {
     daySquare.dataset.cy = "calendar-cell";
 
     if (i > paddingDays) {
+      // add id to calendar cell date, and a div that contains the number of todos for that date
       const dayId = `day-${year}-${month + 1}-${i - paddingDays}`;
       dayWithinSquare.id = dayId;
       dayWithinSquare.innerText = i - paddingDays;
+      const todoCount = document.createElement("div");
+      todoCount.className = "todoCount";
+      todoCount.setAttribute("data-cy", "calendar-cell-todos");
+      todoCount.textContent = getTodoCount(dayId);
+      dayWithinSquare.appendChild(todoCount);
 
       daySquare.addEventListener("click", () => console.log("click"));
 
