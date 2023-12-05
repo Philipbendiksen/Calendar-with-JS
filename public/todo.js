@@ -1,50 +1,81 @@
 function initTodos() {
   updateUI();
   //const modal = document.getElementById("modal-popUp");
-  const btnSave = document.getElementById("btnSave");
+  // const btnSave = document.getElementById("btnSave");
+  const addToDoBtn = document.getElementById("btnOpenPopUp");
   //const item = document.getElementById("listItem");
-  btnSave.addEventListener("click", addTodo);
+  // btnSave.addEventListener("click", addTodo);
+  addToDoBtn.addEventListener("click", () => {
+    const notificationModalBtn1 = document.querySelector("#notiModalBtn1");
+    const modalContent = `
+          <input
+            type="text"
+            id="todoTitle"
+            placeholder="Titel"
+            data-cy="todo-title-input"
+          />
+          <input type="text" id="todoPlace" placeholder="Plats" />
+          <input
+            type="date"
+            id="todoDate"
+            placeholder="Datum"
+            data-cy="todo-date-input"
+          />
+          <input type="text" id="todoNotes" placeholder="Anteckningar" />
+          `;
+    confirmationModal("", "OK", "Avbryt", addTodo);
+    notiModalTitle.innerHTML = modalContent;
+    notiModalTitle.classList = "toDoInputStyle";
+
+    notificationModalBtn1.dataset.cy = "save-todo-button";
+  });
+}
+function clearToDoFromEmptyObjects() {
+  const filteredArray = todos.filter((obj) => obj.title.trim() !== "");
+  todos = filteredArray;
 }
 
 function addTodo() {
   // Hämta värden från input-fälten för att skapa en ny todo
-  const title = document.getElementById("todoTitle").value;
-  const place = document.getElementById("todoPlace").value;
-  const date = document.getElementById("todoDate").value;
-  const notes = document.getElementById("todoNotes").value;
-  console.log("Save button clicked");
+  const title = document.getElementById("todoTitle");
+  const place = document.getElementById("todoPlace");
+  const date = document.getElementById("todoDate");
+  const notes = document.getElementById("todoNotes");
 
-  if (title === "" || date === "") {
-    title.placeholder == "Fyll i något...";
+  if (title.value === "" || date.value === "") {
+    console.log("Feeel");
   } else {
     //skapa en ny todo-objekt
     const newTodo = {
-      title: title,
-      place: place,
-      date: date,
-      notes: notes,
+      title: title.value,
+      place: place.value,
+      date: date.value,
+      notes: notes.value,
     };
     // lägg tilli arrayen
     todos.push(newTodo);
     // spara den uppdaterade
     localStorage.setItem("todos", JSON.stringify(todos));
-
+    title.value = "";
+    place.value = "";
+    date.value = "";
+    notes.value = "";
     updateUI();
   }
 }
 
 function deleteTodoItem(todoItem) {
-  const title = `Vill du verkligen ta bort ${todoItem.title} ? `;
-  confirmationModal(title, "Ja", "Avbryt", deleteItem);
-  function deleteItem() {
-    const index = todos.indexOf(todoItem);
+  // const title = `Vill du verkligen ta bort ${todoItem.title} ? `;
+  // confirmationModal(title, "Ja", "Avbryt", deleteItem);
+  // function deleteItem() {
+  const index = todos.indexOf(todoItem);
 
-    todos.splice(index, 1);
+  todos.splice(index, 1);
 
-    localStorage.setItem("todos", JSON.stringify(todos));
+  localStorage.setItem("todos", JSON.stringify(todos));
 
-    updateUI();
-  }
+  updateUI();
+  // }
 }
 
 function showTodayEvents() {
@@ -90,51 +121,63 @@ function openModal(date) {
 }
 
 function openEditModal(todoItem) {
-  const modal = document.getElementById("modal-popUp");
-  const btnSave = document.getElementById("btnSave");
+  const notificationModalBtn1 = document.querySelector("#notiModalBtn1");
+  const modalContent = `
+        <input
+          type="text"
+          id="todoTitle"
+          placeholder="Titel"
+          data-cy="todo-title-input"
+        />
+        <input type="text" id="todoPlace" placeholder="Plats" />
+        <input
+          type="date"
+          id="todoDate"
+          placeholder="Datum"
+          data-cy="todo-date-input"
+        />
+        <input type="text" id="todoNotes" placeholder="Anteckningar" />
+        `;
+  confirmationModal("", "OK", "Avbryt", doNothing);
+  notiModalTitle.innerHTML = modalContent;
+  notiModalTitle.classList = "toDoInputStyle";
 
   document.getElementById("todoTitle").value = todoItem.title;
   document.getElementById("todoPlace").value = todoItem.place;
   document.getElementById("todoDate").value = todoItem.date;
   document.getElementById("todoNotes").value = todoItem.notes;
 
-  btnSave.removeEventListener("click", addTodo);
-  btnSave.addEventListener("click", function () {
+  // notificationModalBtn1.removeEventListener("click", addTodo);
+  notificationModalBtn1.addEventListener("click", function () {
+    console.log("updated item!");
+    console.log(todoItem.title);
     updateTodo(todoItem);
   });
-
-  modal.style.display = "block";
 }
 
 function updateTodo(todoItem) {
-  const updatedTitle = document.getElementById("todoTitle").value;
-  const updatedPlace = document.getElementById("todoPlace").value;
-  const updatedDate = document.getElementById("todoDate").value;
-  const updatedNotes = document.getElementById("todoNotes").value;
+  const updatedTitle = document.getElementById("todoTitle");
+  const updatedPlace = document.getElementById("todoPlace");
+  const updatedDate = document.getElementById("todoDate");
+  const updatedNotes = document.getElementById("todoNotes");
 
-  todoItem.title = updatedTitle;
-  todoItem.place = updatedPlace;
-  todoItem.date = updatedDate;
-  todoItem.notes = updatedNotes;
+  todoItem.title = updatedTitle.value;
+  todoItem.place = updatedPlace.value;
+  todoItem.date = updatedDate.value;
+  todoItem.notes = updatedNotes.value;
 
   localStorage.setItem("todos", JSON.stringify(todos));
-
-  closeEditModal();
   updateUI();
-}
-
-function closeEditModal() {
-  const modal = document.getElementById("modal-popUp");
-  modal.style.display = "none";
 }
 
 function updateUI() {
   const todoList = document.getElementById("itemsContainer");
   todoList.innerHTML = "";
+  clearToDoFromEmptyObjects();
 
   todos.forEach((todoItem) => {
     console.log("Adding todoItem to UI:", todoItem);
-    const listItem = document.createElement("div");
+    const listItem = document.createElement("li");
     const toDoIcons = document.createElement("div");
     listItem.classList = "toDoItems";
     toDoIcons.classList = "toDoIcons";
@@ -173,6 +216,8 @@ function updateUI() {
   //todoList.innerHTML = "";
   showTodayEvents();
 }
+
+function doNothing() {}
 
 /* DAVID
 

@@ -175,6 +175,12 @@ button {
   gap: 1rem;
 }
 
+.toDoInputStyle {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .modalBackdrop-show {
   background-color: grey;
   opacity: 0.6;
