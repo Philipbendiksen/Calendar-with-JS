@@ -30,6 +30,10 @@ function initTodos() {
     notificationModalBtn1.dataset.cy = "save-todo-button";
   });
 }
+function clearToDoFromEmptyObjects() {
+  const filteredArray = todos.filter((obj) => obj.title.trim() !== "");
+  todos = filteredArray;
+}
 
 function addTodo() {
   // Hämta värden från input-fälten för att skapa en ny todo
@@ -61,17 +65,17 @@ function addTodo() {
 }
 
 function deleteTodoItem(todoItem) {
-  const title = `Vill du verkligen ta bort ${todoItem.title} ? `;
-  confirmationModal(title, "Ja", "Avbryt", deleteItem);
-  function deleteItem() {
-    const index = todos.indexOf(todoItem);
+  // const title = `Vill du verkligen ta bort ${todoItem.title} ? `;
+  // confirmationModal(title, "Ja", "Avbryt", deleteItem);
+  // function deleteItem() {
+  const index = todos.indexOf(todoItem);
 
-    todos.splice(index, 1);
+  todos.splice(index, 1);
 
-    localStorage.setItem("todos", JSON.stringify(todos));
+  localStorage.setItem("todos", JSON.stringify(todos));
 
-    updateUI();
-  }
+  updateUI();
+  // }
 }
 
 function showTodayEvents() {
@@ -117,8 +121,6 @@ function openModal(date) {
 }
 
 function openEditModal(todoItem) {
-  // const modal = document.getElementById("modal-popUp");
-  const btnSave = document.getElementById("btnSave");
   const notificationModalBtn1 = document.querySelector("#notiModalBtn1");
   const modalContent = `
         <input
@@ -136,7 +138,7 @@ function openEditModal(todoItem) {
         />
         <input type="text" id="todoNotes" placeholder="Anteckningar" />
         `;
-  confirmationModal("", "OK", "Avbryt", undefined);
+  confirmationModal("", "OK", "Avbryt", doNothing);
   notiModalTitle.innerHTML = modalContent;
   notiModalTitle.classList = "toDoInputStyle";
 
@@ -145,9 +147,10 @@ function openEditModal(todoItem) {
   document.getElementById("todoDate").value = todoItem.date;
   document.getElementById("todoNotes").value = todoItem.notes;
 
-  notificationModalBtn1.removeEventListener("click", addTodo);
+  // notificationModalBtn1.removeEventListener("click", addTodo);
   notificationModalBtn1.addEventListener("click", function () {
     console.log("updated item!");
+    console.log(todoItem.title);
     updateTodo(todoItem);
   });
 }
@@ -164,23 +167,17 @@ function updateTodo(todoItem) {
   todoItem.notes = updatedNotes.value;
 
   localStorage.setItem("todos", JSON.stringify(todos));
-
-  closeEditModal();
   updateUI();
-}
-
-function closeEditModal() {
-  const modal = document.getElementById("modal-popUp");
-  modal.style.display = "none";
 }
 
 function updateUI() {
   const todoList = document.getElementById("itemsContainer");
   todoList.innerHTML = "";
+  clearToDoFromEmptyObjects();
 
   todos.forEach((todoItem) => {
     console.log("Adding todoItem to UI:", todoItem);
-    const listItem = document.createElement("div");
+    const listItem = document.createElement("li");
     const toDoIcons = document.createElement("div");
     listItem.classList = "toDoItems";
     toDoIcons.classList = "toDoIcons";
@@ -219,6 +216,8 @@ function updateUI() {
   //todoList.innerHTML = "";
   showTodayEvents();
 }
+
+function doNothing() {}
 
 /* DAVID
 
