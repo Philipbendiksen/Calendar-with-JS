@@ -10,6 +10,7 @@
     <script src="calendar.js" defer ></script>
     <script src="modal.js" defer></script>
     <script src="welcome.js" defer></script>
+    <script src="mark_todo.js"></script>
     <script src="confirmationModal.js"></script>
    
     <link rel="shortcut icon" href="#" /> <!-- för att få bort favicon popup i konsol -->
@@ -42,14 +43,14 @@
       </aside>
 
 
-      <div class="calendarContainer">
+      <div class="calendarContainer" data-cy="prev-month">
         <div id="seeDate">
             <div class="buttons">
-              <div id="lastMonth" data-cy="prev-month"><span class="material-symbols-outlined">
+              <div id="lastMonth"><span class="material-symbols-outlined">
                 arrow_back
                 </span></div> 
               <div id="Monthdisplay">  </div>
-              <div id="nextMonth" data-cy="next-month">
+              <div id="nextMonth">
                 <span class="material-symbols-outlined">
                   arrow_forward
                   </span>
@@ -71,7 +72,25 @@
       </div>
 
       <div class="toDoModal hide" id="modal-popUp">
-        <div class="modalContainer" id="modalContainer">
+        <div class="modalContainer">
+          <span class="material-symbols-outlined" id="btnClose-popUp">
+            close
+          </span>
+          <input
+            type="text"
+            id="todoTitle"
+            placeholder="title"
+            data-cy="todo-title-input"
+          />
+          <input type="text" id="todoPlace" placeholder="place" />
+          <input
+            type="date"
+            id="todoDate"
+            placeholder="date"
+            data-cy="todo-date-input"
+          />
+          <input type="text" id="todoNotes" placeholder="notes" />
+          <button id="btnSave" data-cy="save-todo-button">SAVE</button>
         </div>
       </div>
     </main>
