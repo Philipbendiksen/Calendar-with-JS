@@ -71,7 +71,7 @@ function load() {
       todoCount.className = "todoCount";
       todoCount.setAttribute("data-cy", "calendar-cell-todos");
       todoCount.textContent = getTodoCount(dayId);
-      dayWithinSquare.appendChild(todoCount);
+      daySquare.appendChild(todoCount);
 
       dayWithinSquare.innerText = i - paddingDays;
 
