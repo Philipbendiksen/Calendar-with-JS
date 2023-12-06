@@ -58,6 +58,7 @@ function load() {
   for (let i = 1; i <= paddingDays + daysInMonth; i++) {
     const daySquare = document.createElement("div");
     const dayWithinSquare = document.createElement("div");
+    dayWithinSquare.className = "dateCell";
     dayWithinSquare.dataset.cy = "calendar-cell-date";
     daySquare.classList.add("day");
     daySquare.dataset.cy = "calendar-cell";
@@ -71,9 +72,8 @@ function load() {
       todoCount.className = "todoCount";
       todoCount.setAttribute("data-cy", "calendar-cell-todos");
       todoCount.textContent = getTodoCount(dayId);
-      daySquare.appendChild(todoCount);
-
       dayWithinSquare.innerText = i - paddingDays;
+      dayWithinSquare.appendChild(todoCount);
 
 
       daySquare.addEventListener("click", () => console.log("click"));
