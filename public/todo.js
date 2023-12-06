@@ -42,7 +42,7 @@ function addTodo() {
   const date = document.getElementById("todoDate");
   const notes = document.getElementById("todoNotes");
 
-  if (title.value === "" || date.value === "") {
+  if (title.value === "" && date.value === "") {
     console.log("Feeel");
   } else {
     //skapa en ny todo-objekt
