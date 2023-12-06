@@ -29,10 +29,6 @@ function load() {
   const firstDayOfMonth = new Date(year, month, 1);
   const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-  console.log(
-    daysInMonth
-  ); /* kollar så antal dagar i månaden stämmer (stämmer) */
-
   const dateString = firstDayOfMonth.toLocaleDateString("en-us", {
     weekday: "long",
     year: "numeric",
@@ -40,16 +36,14 @@ function load() {
     day: "numeric",
   });
 
-  console.log(
-    dateString
-  ); /*  kollar vilken dag som är första dagen i månaden, vilket stämmer, men kanlendern börjar inte där  */
+  let paddingDays = dt.getDay() + 1;
+  if (paddingDays === -1) {
+    paddingDays = 4;
+  }
+  if (paddingDays === 7) {
+    paddingDays = 0;
+  }
 
-  /*  let paddingDays = dt.getDay() - 1;
-     if (paddingDays === -1) {              // kommenterar ut för att testa ny kod
-         paddingDays = 4;
-     } */
-
-  let paddingDays = (dt.getDay() + 9) % 7; // Vet inte hur detta fungerar men det fungerar
 
   document.getElementById("Monthdisplay").innerText = `${dt.toLocaleDateString(
     "en-us",
@@ -78,6 +72,9 @@ function load() {
       todoCount.setAttribute("data-cy", "calendar-cell-todos");
       todoCount.textContent = getTodoCount(dayId);
       dayWithinSquare.appendChild(todoCount);
+
+      dayWithinSquare.innerText = i - paddingDays;
+
 
       daySquare.addEventListener("click", () => console.log("click"));
 
