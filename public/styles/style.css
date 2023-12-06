@@ -74,6 +74,7 @@ button {
   /* margin: 5px; */
   cursor: pointer;
   height: 100%;
+  position: relative;
 }
 .days {
   display: grid;
@@ -99,6 +100,16 @@ button {
 
 .day:hover {
   background-color: #e8faed;
+}
+
+.todoCount {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 5%;
+  width: 20px;
+  background-color: fuchsia; 
+  border-radius: 9999px;
 }
 
 .toDoContainer {
