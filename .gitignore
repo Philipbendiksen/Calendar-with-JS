@@ -3,3 +3,4 @@ dist
 cypress
 .DS_Store
 cypress 
+.vscode/

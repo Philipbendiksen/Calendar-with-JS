@@ -29,10 +29,6 @@ function load() {
   const firstDayOfMonth = new Date(year, month, 1);
   const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-  console.log(
-    daysInMonth
-  ); /* kollar så antal dagar i månaden stämmer (stämmer) */
-
   const dateString = firstDayOfMonth.toLocaleDateString("en-us", {
     weekday: "long",
     year: "numeric",
@@ -40,14 +36,14 @@ function load() {
     day: "numeric",
   });
 
-  console.log(
-    dateString
-  ); /*  kollar vilken dag som är första dagen i månaden, vilket stämmer, men kanlendern börjar inte där  */
-
-  let paddingDays = dt.getDay() - 1;
+  let paddingDays = dt.getDay() + 1;
   if (paddingDays === -1) {
-    paddingDays = 6;
+    paddingDays = 4;
   }
+  if (paddingDays === 7) {
+    paddingDays = 0;
+  }
+
 
   document.getElementById("Monthdisplay").innerText = `${dt.toLocaleDateString(
     "en-us",
@@ -57,6 +53,8 @@ function load() {
   calendar.innerHTML =
     ""; /* skapar en empty string som nollställer kalendern */
 
+  updateTodosCount();
+
   for (let i = 1; i <= paddingDays + daysInMonth; i++) {
     const daySquare = document.createElement("div");
     const dayWithinSquare = document.createElement("div");
@@ -65,7 +63,18 @@ function load() {
     daySquare.dataset.cy = "calendar-cell";
 
     if (i > paddingDays) {
+      // add id to calendar cell date, and a div that contains the number of todos for that date
+      const dayId = `day-${year}-${month + 1}-${i - paddingDays}`;
+      dayWithinSquare.id = dayId;
       dayWithinSquare.innerText = i - paddingDays;
+      const todoCount = document.createElement("div");
+      todoCount.className = "todoCount";
+      todoCount.setAttribute("data-cy", "calendar-cell-todos");
+      todoCount.textContent = getTodoCount(dayId);
+      dayWithinSquare.appendChild(todoCount);
+
+      dayWithinSquare.innerText = i - paddingDays;
+
 
       daySquare.addEventListener("click", () => console.log("click"));
 
