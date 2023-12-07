@@ -66,9 +66,6 @@ function addTodo() {
 }
 
 function deleteTodoItem(todoItem) {
-  // const title = `Vill du verkligen ta bort ${todoItem.title} ? `;
-  // confirmationModal(title, "Ja", "Avbryt", deleteItem);
-  // function deleteItem() {
   const index = todos.indexOf(todoItem);
 
   todos.splice(index, 1);
@@ -202,8 +199,6 @@ function updateUI() {
       openEditModal(todoItem);
     });
 
-    //listItem.innerHTML = `<strong>${todoItem.title}</strong> - ${todoItem.date}`;
-
     const todoText = document.createElement("div");
     todoText.classList = "toDoTitles";
     todoText.innerHTML = `<strong>${todoItem.title}</strong> - ${todoItem.date}`;
@@ -217,6 +212,19 @@ function updateUI() {
   });
   //todoList.innerHTML = "";
   showTodayEvents();
+}
+
+function renderDay(result) {
+  const activeDate = document.getElementById("activeDate");
+  activeDate.textContent = result;
+}
+
+function updateToDoWithSelectedDate(result) {
+  todos.forEach((items) => {
+    // console.log(result);
+    let item = Number(items.date).toString();
+    console.log(item);
+  });
 }
 
 function doNothing() {}

@@ -44,7 +44,6 @@ function load() {
     paddingDays = 0;
   }
 
-
   document.getElementById("Monthdisplay").innerText = `${dt.toLocaleDateString(
     "en-us",
     { month: "long" }
@@ -69,16 +68,20 @@ function load() {
       dayWithinSquare.id = dayId;
       dayWithinSquare.innerText = i - paddingDays;
       const totodCountValue = getTodoCount(dayId);
-      if(totodCountValue !== "undefined" && totodCountValue !== ""){
+      if (totodCountValue !== "undefined" && totodCountValue !== "") {
         const todoCount = document.createElement("div");
         todoCount.className = "todoCount";
         todoCount.setAttribute("data-cy", "calendar-cell-todos");
         todoCount.textContent = totodCountValue;
         dayWithinSquare.innerText = i - paddingDays;
         dayWithinSquare.appendChild(todoCount);
-      }  
+      }
 
-      daySquare.addEventListener("click", () => console.log("click"));
+      daySquare.addEventListener("click", (e) => {
+        let result = e.target.id.substring(4);
+        updateToDoWithSelectedDate(result);
+        renderDay(result);
+      });
 
       if (i - paddingDays === day && nav === 0) {
         /* Ska visa aktuell dag  */
