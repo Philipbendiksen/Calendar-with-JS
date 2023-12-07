@@ -43,7 +43,7 @@ function addTodo() {
   const notes = document.getElementById("todoNotes");
 
   if (title.value === "" || date.value === "") {
-    console.log("Feeel");
+    console.log("Fel, saknar datum eller titel");
   } else {
     //skapa en ny todo-objekt
     const newTodo = {
