@@ -21,60 +21,66 @@ function createWelcomeSegment(welcomeSegmentClassName) {
   welcomeSegment.className = welcomeSegmentClassName;
   welcomeSegment.setAttribute("data-cy", "welcome-segment");
 
-  const dayAndIconDiv = document.createElement("div");
-  dayAndIconDiv.className = "dayAndSeasonIcon";
-  welcomeSegment.appendChild(dayAndIconDiv);
-
-  const welcomeDayDiv = document.createElement("div");
-  welcomeDayDiv.className = "welcomeDay";
-  const dayNames = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saterday",
-    "Sunday",
-  ];
-  const now = new Date();
-  const day = dayNames[now.getDay() - 1];
-  welcomeDayDiv.textContent = day;
-  dayAndIconDiv.appendChild(welcomeDayDiv);
-
-  const iconDiv = document.createElement("div");
-  iconDiv.className = "seasonalIcon";
-  iconDiv.textContent = "⛄️❄️";
-  dayAndIconDiv.appendChild(iconDiv);
-
-  const welcomeTimeDiv = document.createElement("div");
-  welcomeTimeDiv.className = "welcomeTime";
-  updateWelcomeTime();
-  welcomeSegment.appendChild(welcomeTimeDiv);
-
   const welcomeDateDiv = document.createElement("div");
   welcomeDateDiv.className = "welcomeDate";
   updateWelcomeDate();
   welcomeSegment.appendChild(welcomeDateDiv);
 
-  function updateWelcomeTime() {
-    const now = new Date();
-    const hour = now.getHours();
-    const minutes = now.getMinutes();
-    const timeString = hour + ":" + (minutes < 10 ? "0" : "") + minutes;
-    welcomeTimeDiv.textContent = timeString;
-  }
-  setInterval(updateWelcomeTime, 1000);
-
   function updateWelcomeDate() {
     const now = new Date();
-    const date = now.getDate();
-    const month = now.getMonth() + 1;
-    const year = now.getFullYear();
-    const dateString = year + "-" + month + "-" + date;
+    const formatOptions = {
+      weekday: "short",
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    };
+    const dateString = now
+      .toLocaleDateString("en-US", formatOptions)
+      .replace(/,/g, ""); // Remove commas
     welcomeDateDiv.textContent = dateString;
   }
 
   setInterval(updateWelcomeDate, 1000); //  updates every second
+
+  const timeAndIconDiv = document.createElement("div");
+  timeAndIconDiv.className = "timeAndSeasonIcon";
+  welcomeSegment.appendChild(timeAndIconDiv);
+
+  /* const welcomeDayDiv = document.createElement("div");
+  welcomeDayDiv.className = "welcomeDay";
+  const dayNames = [
+    "sun", 
+    "mon", 
+    "tue", 
+    "wed", 
+    "thu", 
+    "fri", 
+    "sat"];
+  const now = new Date();
+  const day = dayNames[now.getDay() - 1];
+  welcomeDayDiv.textContent = day;
+  dayAndIconDiv.appendChild(welcomeDayDiv); */
+
+  const welcomeTimeDiv = document.createElement("div");
+  welcomeTimeDiv.className = "welcomeTime";
+  updateWelcomeTime();
+  timeAndIconDiv.appendChild(welcomeTimeDiv);
+
+  function updateWelcomeTime() {
+    const now = new Date();
+    const hour = now.getHours();
+    const minutes = now.getMinutes();
+    const timeString = `${hour < 10 ? "0" : ""}${hour}:${
+      minutes < 10 ? "0" : ""
+    }${minutes}`;
+    welcomeTimeDiv.textContent = timeString;
+  }
+  setInterval(updateWelcomeTime, 1000);
+
+  const iconDiv = document.createElement("div");
+  iconDiv.className = "seasonalIcon";
+  iconDiv.textContent = "⛄️❄️";
+  timeAndIconDiv.appendChild(iconDiv);
 
   return welcomeSegment;
 }
