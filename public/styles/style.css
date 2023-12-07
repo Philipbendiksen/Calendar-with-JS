@@ -125,6 +125,7 @@ button {
   width: 100%;
   padding: 1rem;
   margin-top: auto;
+  max-height: 35vh;
 }
 
 .toDo-activeDay {
@@ -132,6 +133,10 @@ button {
   justify-content: space-between;
   font-size: 1.5rem;
   align-items: center;
+}
+
+#itemsContainer {
+  overflow: auto;
 }
 
 .toDoItems {
@@ -227,7 +232,8 @@ button {
     display: none;
   }
   .toDoContainer {
-    height: 100%;
+    min-height: 100%;
+    margin: 0;
   }
 
   main {
