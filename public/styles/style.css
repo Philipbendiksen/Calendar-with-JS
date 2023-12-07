@@ -75,7 +75,7 @@ button {
   /* margin: 5px; */
   cursor: pointer;
   height: 100%;
-  position: relative;
+  /* position: relative; */
 }
 .days {
   display: grid;
@@ -103,6 +103,10 @@ button {
   background-color: #e8faed;
 }
 
+.dateCell {
+  position: relative;
+  padding: 40px 0;
+}
 .todoCount {
   position: absolute;
   top: 0;
