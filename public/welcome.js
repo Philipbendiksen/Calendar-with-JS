@@ -35,7 +35,7 @@ function createWelcomeSegment(welcomeSegmentClassName) {
       day: "numeric",
     };
     const dateString = now
-      .toLocaleDateString("en-US", formatOptions)
+      .toLocaleDateString("sv", formatOptions)
       .replace(/,/g, ""); // Remove commas
     welcomeDateDiv.textContent = dateString;
   }

@@ -61,6 +61,7 @@ function addTodo() {
     date.value = "";
     notes.value = "";
     updateUI();
+    load();
   }
 }
 
@@ -75,6 +76,7 @@ function deleteTodoItem(todoItem) {
   localStorage.setItem("todos", JSON.stringify(todos));
 
   updateUI();
+  load();
   // }
 }
 
