@@ -221,9 +221,8 @@ function renderDay(result) {
 
 function updateToDoWithSelectedDate(result) {
   todos.forEach((items) => {
-    // console.log(result);
     let item = Number(items.date).toString();
-    console.log(item);
+    console.log(items.date);
   });
 }
 
