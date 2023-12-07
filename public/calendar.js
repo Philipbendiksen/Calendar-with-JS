@@ -68,13 +68,15 @@ function load() {
       const dayId = `day-${year}-${month + 1}-${i - paddingDays}`;
       dayWithinSquare.id = dayId;
       dayWithinSquare.innerText = i - paddingDays;
-      const todoCount = document.createElement("div");
-      todoCount.className = "todoCount";
-      todoCount.setAttribute("data-cy", "calendar-cell-todos");
-      todoCount.textContent = getTodoCount(dayId);
-      dayWithinSquare.innerText = i - paddingDays;
-      dayWithinSquare.appendChild(todoCount);
-
+      const totodCountValue = getTodoCount(dayId);
+      if(totodCountValue !== "undefined" && totodCountValue !== ""){
+        const todoCount = document.createElement("div");
+        todoCount.className = "todoCount";
+        todoCount.setAttribute("data-cy", "calendar-cell-todos");
+        todoCount.textContent = totodCountValue;
+        dayWithinSquare.innerText = i - paddingDays;
+        dayWithinSquare.appendChild(todoCount);
+      }  
 
       daySquare.addEventListener("click", () => console.log("click"));
 
