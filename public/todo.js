@@ -42,7 +42,7 @@ function addTodo() {
   const date = document.getElementById("todoDate");
   const notes = document.getElementById("todoNotes");
 
-  if (title.value === "" && date.value === "") {
+  if (title.value === "" || date.value === "") {
     console.log("Feeel");
   } else {
     //skapa en ny todo-objekt
@@ -51,6 +51,7 @@ function addTodo() {
       place: place.value,
       date: date.value,
       notes: notes.value,
+      visibility: true,
     };
     // lägg tilli arrayen
     todos.push(newTodo);
@@ -63,6 +64,12 @@ function addTodo() {
     updateUI();
     load();
   }
+}
+
+function setVisibilityToAllItems() {
+  todos.forEach((item) => {
+    item.visibility = true;
+  });
 }
 
 function deleteTodoItem(todoItem) {
@@ -175,57 +182,74 @@ function updateUI() {
   clearToDoFromEmptyObjects();
 
   todos.forEach((todoItem) => {
-    console.log("Adding todoItem to UI:", todoItem);
-    const listItem = document.createElement("li");
-    const toDoIcons = document.createElement("div");
-    listItem.classList = "toDoItems";
-    toDoIcons.classList = "toDoIcons";
+    if (todoItem.visibility !== false) {
+      const listItem = document.createElement("li");
+      const toDoIcons = document.createElement("div");
+      listItem.classList = "toDoItems";
+      toDoIcons.classList = "toDoIcons";
 
-    const deleteIcon = document.createElement("span");
-    deleteIcon.className = "material-symbols-outlined";
-    deleteIcon.dataset.cy = "delete-todo-button";
-    deleteIcon.innerText = "delete";
+      const deleteIcon = document.createElement("span");
+      deleteIcon.className = "material-symbols-outlined";
+      deleteIcon.dataset.cy = "delete-todo-button";
+      deleteIcon.innerText = "delete";
 
-    deleteIcon.addEventListener("click", function () {
-      deleteTodoItem(todoItem);
-    });
+      deleteIcon.addEventListener("click", function () {
+        deleteTodoItem(todoItem);
+      });
 
-    const editIcon = document.createElement("span");
-    editIcon.className = "material-symbols-outlined";
-    editIcon.dataset.cy = "edit-todo-button";
-    editIcon.innerText = "edit";
+      const editIcon = document.createElement("span");
+      editIcon.className = "material-symbols-outlined";
+      editIcon.dataset.cy = "edit-todo-button";
+      editIcon.innerText = "edit";
 
-    editIcon.addEventListener("click", function () {
-      openEditModal(todoItem);
-    });
+      editIcon.addEventListener("click", function () {
+        openEditModal(todoItem);
+      });
 
-    const todoText = document.createElement("div");
-    todoText.classList = "toDoTitles";
-    todoText.innerHTML = `<strong>${todoItem.title}</strong> - ${todoItem.date}`;
+      const todoText = document.createElement("div");
+      todoText.classList = "toDoTitles";
+      todoText.innerHTML = `<strong>${todoItem.title}</strong> - ${todoItem.date}`;
 
-    listItem.appendChild(todoText);
-    toDoIcons.appendChild(deleteIcon);
-    toDoIcons.appendChild(editIcon);
+      listItem.appendChild(todoText);
+      toDoIcons.appendChild(deleteIcon);
+      toDoIcons.appendChild(editIcon);
 
-    todoList.appendChild(listItem);
-    listItem.appendChild(toDoIcons);
+      todoList.appendChild(listItem);
+      listItem.appendChild(toDoIcons);
+    }
   });
   //todoList.innerHTML = "";
   showTodayEvents();
 }
 
-function renderDay(result) {
+function renderSelectedDate(query) {
   const activeDate = document.getElementById("activeDate");
-  activeDate.textContent = result;
+  if (query !== "NaN-NaN-NaN") {
+    activeDate.textContent = query;
+    todos.forEach((item) => {
+      const itemDate = convertToDate(item.date);
+      if (itemDate === query) {
+        setVisibilityByDate(todos, query);
+        updateUI();
+      }
+    });
+  }
 }
 
-function updateToDoWithSelectedDate(result) {
-  todos.forEach((items) => {
-    let item = Number(items.date).toString();
-    console.log(items.date);
+function setVisibilityByDate(array, targetDate) {
+  array.forEach((item) => {
+    item.visibility = item.date === targetDate;
   });
 }
+function convertToDate(query) {
+  const inputDate = new Date(query);
+  const year = inputDate.getFullYear();
+  const month = (inputDate.getMonth() + 1).toString().padStart(2, "0");
+  const day = inputDate.getDate().toString().padStart(2, "0");
 
+  const formattedDateString = `${year}-${month}-${day}`;
+  return formattedDateString;
+}
 function doNothing() {}
 
 /* DAVID

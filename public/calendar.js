@@ -36,7 +36,7 @@ function load() {
     day: "numeric",
   });
 
-  let paddingDays = dt.getDay() + 1;
+  let paddingDays = dt.getDay();
   if (paddingDays === -1) {
     paddingDays = 4;
   }
@@ -78,9 +78,9 @@ function load() {
       }
 
       daySquare.addEventListener("click", (e) => {
-        let result = e.target.id.substring(4);
-        updateToDoWithSelectedDate(result);
-        renderDay(result);
+        const clickedDate = e.target.id.substring(4);
+        const convertedClickedDate = convertToDate(clickedDate);
+        renderSelectedDate(convertedClickedDate);
       });
 
       if (i - paddingDays === day && nav === 0) {
