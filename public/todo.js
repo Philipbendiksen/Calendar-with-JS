@@ -1,10 +1,6 @@
 function initTodos() {
   updateUI();
-  //const modal = document.getElementById("modal-popUp");
-  // const btnSave = document.getElementById("btnSave");
   const addToDoBtn = document.getElementById("btnOpenPopUp");
-  //const item = document.getElementById("listItem");
-  // btnSave.addEventListener("click", addTodo);
   addToDoBtn.addEventListener("click", () => {
     const notificationModalBtn1 = document.querySelector("#notiModalBtn1");
     const modalContent = `
@@ -30,6 +26,15 @@ function initTodos() {
     notificationModalBtn1.dataset.cy = "save-todo-button";
   });
 }
+const showAllTodos = document.getElementById("showAllTodos");
+showAllTodos.addEventListener("click", () => {
+  activeDate.textContent = "Alla todos...";
+  todos.forEach((item) => {
+    item.visibility = true;
+    updateUI();
+  });
+});
+
 function clearToDoFromEmptyObjects() {
   const filteredArray = todos.filter((obj) => obj.title.trim() !== "");
   todos = filteredArray;
@@ -225,14 +230,19 @@ function updateUI() {
 function renderSelectedDate(query) {
   const activeDate = document.getElementById("activeDate");
   if (query !== "NaN-NaN-NaN") {
-    activeDate.textContent = query;
+    let hasMatch = false;
     todos.forEach((item) => {
       const itemDate = convertToDate(item.date);
       if (itemDate === query) {
+        hasMatch = true;
         setVisibilityByDate(todos, query);
         updateUI();
       }
     });
+    if (!hasMatch) {
+      setVisibilityToFalse();
+    }
+    activeDate.textContent = query;
   }
 }
 
@@ -240,6 +250,13 @@ function setVisibilityByDate(array, targetDate) {
   array.forEach((item) => {
     item.visibility = item.date === targetDate;
   });
+}
+function setVisibilityToFalse() {
+  todos.forEach((item) => {
+    item.visibility = false;
+  });
+  updateUI();
+  console.log(todos);
 }
 function convertToDate(query) {
   const inputDate = new Date(query);
@@ -250,6 +267,7 @@ function convertToDate(query) {
   const formattedDateString = `${year}-${month}-${day}`;
   return formattedDateString;
 }
+
 function doNothing() {}
 
 /* DAVID
