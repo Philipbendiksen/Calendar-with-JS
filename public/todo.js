@@ -28,6 +28,7 @@ function initTodos() {
 }
 const showAllTodos = document.getElementById("showAllTodos");
 showAllTodos.addEventListener("click", () => {
+  activeDate.textContent = "Alla todos...";
   todos.forEach((item) => {
     item.visibility = true;
     updateUI();
@@ -225,24 +226,6 @@ function updateUI() {
   //todoList.innerHTML = "";
   showTodayEvents();
 }
-
-// function renderSelectedDate(query) {
-//   const activeDate = document.getElementById("activeDate");
-//   if (query !== "NaN-NaN-NaN") {
-//     activeDate.textContent = query;
-//     todos.forEach((item) => {
-//       const itemDate = convertToDate(item.date);
-//       if (itemDate === query) {
-//         setVisibilityByDate(todos, query);
-//         updateUI();
-//       }
-//       if (itemDate !== query) {
-//         console.log("else!");
-//         setVisibilityToFalse();
-//       }
-//     });
-//   }
-// }
 
 function renderSelectedDate(query) {
   const activeDate = document.getElementById("activeDate");
