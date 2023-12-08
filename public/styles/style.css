@@ -105,14 +105,19 @@ button {
 
 .dateCell {
   position: relative;
-  padding: 40px 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .todoCount {
   position: absolute;
   top: 0;
   right: 0;
   margin: 5%;
-  width: 20px;
+  width: 10px;
+  font-size: x-small;
   background-color: fuchsia; 
   border-radius: 9999px;
 }
@@ -235,7 +240,10 @@ button {
     min-height: 100%;
     margin: 0;
   }
-
+  .todoCount {
+    width: 20px;
+    font-size: medium;
+  }
   main {
     display: flex;
     flex-direction: row;
