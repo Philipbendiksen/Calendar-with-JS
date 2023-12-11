@@ -4,16 +4,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="main.js" defer></script>
-    <script src="todo.js" defer></script>
-    <script src="mark_todo.js" defer></script>
-    <script src="calendar.js" defer ></script>
-    <script src="modal.js" defer></script>
-    <script src="welcome.js" defer></script>
-    <script src="confirmationModal.js"></script>
+    <title>SEPO Kalender</title>
+    <script src="/scripts/main.js"></script>
+    <script src="/scripts/todo.js"></script>
+    <script src="/scripts/calendar.js"></script>
+    <script src="/scripts/mark_todo.js"></script>
+    <script src="/scripts/welcome.js"></script>
+    <script src="/scripts/confirmationModal.js"></script>
    
-    <link rel="shortcut icon" href="#" /> <!-- för att få bort favicon popup i konsol -->
+    <link rel="shortcut icon" href="#" /> <!-- To remove favicon console error -->
     <link rel="stylesheet" href="styles/style.css" />
     <link
       rel="stylesheet"
@@ -22,6 +21,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+
   </head> 
   <body>
 
@@ -34,28 +34,26 @@
             <span
               class="material-symbols-outlined addToDo"
               data-cy="todo-reveal-form"
-              id="btnOpenPopUp">
+              id="addToDoBtn">
               add
             </span>
           </div>
           <div id="itemsContainer">
             <ul id="todayEvents">
-            
             </ul>
           </div>
         </div>
       </aside>
 
-
       <div class="calendarContainer" >
         <div id="seeDate">
             <div class="buttons">
-              <div id="lastMonth" data-cy="prev-month"><span class="material-symbols-outlined">
+              <div id="lastMonth" data-cy="prev-month"><span class="material-symbols-outlined button-new-style">
                 arrow_back
                 </span></div> 
               <div id="Monthdisplay">  </div>
               <div id="nextMonth" data-cy="next-month">
-                <span class="material-symbols-outlined">
+                <span class="material-symbols-outlined button-new-style">
                   arrow_forward
                   </span>
               </div>
@@ -71,8 +69,8 @@
           <div class="daysItem" data-cy="calendar-cell">LÖRD</div>
           <div class="daysItem" data-cy="calendar-cell">SÖND</div>
         </div>
-          <div class="calendar" id="calendarNumber" data-cy="calendar-body" data-cy="calendar-body" >   <!-- Dagar genererade med JS -->
-      
+        <div class="calendar" id="calendarNumber" data-cy="calendar-body" data-cy="calendar-body" >
+             <!-- Days rendered through JS -->
       </div>
 
       <div class="toDoModal hide" id="modal-popUp">
