@@ -1,7 +1,5 @@
 let nav = 0;
 
-
-
 function initCalendar() {
   initbuttons();
   renderCalendar();
@@ -29,17 +27,23 @@ function renderCalendar() {
     day: "numeric",
   });
 
-  let paddingDays = firstDayOfMonth.getDay() -1;
+  let paddingDays = firstDayOfMonth.getDay() - 1;
   if (paddingDays === 6) {
     paddingDays = 0;
   }
-  
+  if (paddingDays === -1) {
+    paddingDays = 6;
+  }
+
+  console.log(paddingDays);
+
   document.getElementById("Monthdisplay").innerText = `${dt.toLocaleDateString(
     "en-us",
     { month: "long" }
   )} ${year}`;
 
-  calendar.innerHTML = ""; /* skapar en empty string som nollställer kalendern */
+  calendar.innerHTML =
+    ""; /* skapar en empty string som nollställer kalendern */
 
   updateTodosCount();
 
@@ -81,7 +85,9 @@ function renderCalendar() {
       daySquare.classList.add("padding");
     }
     daySquare.appendChild(dayWithinSquare);
-    calendar.appendChild(daySquare); /* appendChild används för att skriva ut JS på sidan */
+    calendar.appendChild(
+      daySquare
+    ); /* appendChild används för att skriva ut JS på sidan */
   }
 }
 
