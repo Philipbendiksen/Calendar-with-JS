@@ -1,20 +1,6 @@
 let nav = 0;
-let clicked = null;
-let events = localStorage.getItem("events")
-  ? JSON.parse(localStorage.getItem("events"))
-  : [];
 
 const calendar = document.getElementById("calendarNumber");
-const weekdays = [
-  "Måndag",
-  "Tisdag",
-  "Onsdag",
-  "Tors",
-  "Fred",
-  "Lördag",
-  "Söndag",
-];
-
 function load() {
   const dt = new Date();
 
