@@ -28,10 +28,11 @@ function renderCalendar() {
     paddingDays = 6;
   }
 
-  document.getElementById("Monthdisplay").innerText = `${dt.toLocaleDateString(
-    "sv-us",
-    { month: "long" }
-  )} ${year}`;
+  document.getElementById(
+    "Monthdisplay"
+  ).innerText = `${date.toLocaleDateString("sv-us", {
+    month: "long",
+  })} ${year}`;
 
   calendar.innerHTML = "";
 
