@@ -49,14 +49,23 @@ body {
   display: flex;
   text-align: center;
   justify-content: center;
-  color: cornflowerblue;
-  margin: 1rem;
+  color: black; 
+  margin-top: 1.5rem;
   gap: 1rem;
 }
 
 .buttons,
 button {
   cursor: pointer;
+}
+
+.button-new-style{
+  display:flex; 
+  color: black;
+  width: 60px;
+  border-radius: 10%;
+  background-color: #9ec8b9;
+  border-style: none;
 }
 
 .calendar {
