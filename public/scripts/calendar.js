@@ -20,16 +20,12 @@ function renderCalendar() {
   const firstDayOfMonth = new Date(year, month, 1);
   const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-  const dateString = firstDayOfMonth.toLocaleDateString("sv-us", {
-    weekday: "long",
-    year: "numeric",
-    month: "numeric",
-    day: "numeric",
-  });
-
   let paddingDays = firstDayOfMonth.getDay() - 1;
   if (paddingDays === 6) {
     paddingDays = 0;
+  }
+  if (paddingDays === -1) {
+    paddingDays = 6;
   }
 
   document.getElementById(
