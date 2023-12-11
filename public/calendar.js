@@ -36,14 +36,13 @@ function load() {
     day: "numeric",
   });
 
-  let paddingDays = dt.getDay() + 1;
+  let paddingDays = dt.getDay();
   if (paddingDays === -1) {
     paddingDays = 4;
   }
   if (paddingDays === 7) {
     paddingDays = 0;
   }
-
 
   document.getElementById("Monthdisplay").innerText = `${dt.toLocaleDateString(
     "en-us",
@@ -68,15 +67,21 @@ function load() {
       const dayId = `day-${year}-${month + 1}-${i - paddingDays}`;
       dayWithinSquare.id = dayId;
       dayWithinSquare.innerText = i - paddingDays;
-      const todoCount = document.createElement("div");
-      todoCount.className = "todoCount";
-      todoCount.setAttribute("data-cy", "calendar-cell-todos");
-      todoCount.textContent = getTodoCount(dayId);
-      dayWithinSquare.innerText = i - paddingDays;
-      dayWithinSquare.appendChild(todoCount);
+      const totodCountValue = getTodoCount(dayId);
+      if (totodCountValue !== "undefined" && totodCountValue !== "") {
+        const todoCount = document.createElement("div");
+        todoCount.className = "todoCount";
+        todoCount.setAttribute("data-cy", "calendar-cell-todos");
+        todoCount.textContent = totodCountValue;
+        dayWithinSquare.innerText = i - paddingDays;
+        dayWithinSquare.appendChild(todoCount);
+      }
 
-
-      daySquare.addEventListener("click", () => console.log("click"));
+      daySquare.addEventListener("click", (e) => {
+        const clickedDate = e.target.id.substring(4);
+        const convertedClickedDate = convertToDate(clickedDate);
+        renderSelectedDate(convertedClickedDate);
+      });
 
       if (i - paddingDays === day && nav === 0) {
         /* Ska visa aktuell dag  */

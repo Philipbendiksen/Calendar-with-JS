@@ -3,7 +3,7 @@ window.addEventListener("DOMContentLoaded", main);
 let todos = JSON.parse(localStorage.getItem("todos") || "[]");
 
 function main() {
-  // PopUp();
+  setVisibilityToAllItems();
   initTodos();
   createCommonHeader();
   initWelcomeSegment();

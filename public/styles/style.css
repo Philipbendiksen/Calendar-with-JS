@@ -8,7 +8,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1b4242;
+  background-color: steelblue;
 }
 main {
   display: flex;
@@ -118,7 +118,7 @@ button {
   margin: 5%;
   width: 10px;
   font-size: x-small;
-  background-color: fuchsia;
+  background-color: fuchsia; 
   border-radius: 9999px;
 }
 
@@ -126,11 +126,11 @@ button {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  background-color: #9ec8b9;
+  background-color: brown;
   width: 100%;
   padding: 1rem;
   margin-top: auto;
-  border-radius: 16px;
+  max-height: 35vh;
 }
 
 .toDo-activeDay {
@@ -138,6 +138,10 @@ button {
   justify-content: space-between;
   font-size: 1.5rem;
   align-items: center;
+}
+
+#itemsContainer {
+  overflow: auto;
 }
 
 .toDoItems {
@@ -233,7 +237,8 @@ button {
     display: none;
   }
   .toDoContainer {
-    height: 100%;
+    min-height: 100%;
+    margin: 0;
   }
   .todoCount {
     width: 20px;
