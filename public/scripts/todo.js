@@ -2,7 +2,19 @@ function initTodos() {
   updateUI();
   initToDoBtn();
 
-  const addToDoBtn = document.getElementById("btnOpenPopUp");
+  function initToDoBtn() {
+    const showAllTodos = document.getElementById("showAllTodos");
+    showAllTodos.addEventListener("click", () => {
+      activeDate.textContent = "Alla todos...";
+      todos.forEach((item) => {
+        item.visibility = true;
+        updateUI();
+      });
+    });
+  }
+
+  //Initiate addToDo button, using confirmationModal() to show modal with desired content.
+  const addToDoBtn = document.getElementById("addToDoBtn");
   addToDoBtn.addEventListener("click", () => {
     const notificationModalBtn1 = document.querySelector("#notiModalBtn1");
     const modalContent = `
@@ -24,19 +36,7 @@ function initTodos() {
     confirmationModal("", "OK", "Avbryt", addTodo);
     notiModalTitle.innerHTML = modalContent;
     notiModalTitle.classList = "toDoInputStyle";
-
     notificationModalBtn1.dataset.cy = "save-todo-button";
-  });
-}
-
-function initToDoBtn() {
-  const showAllTodos = document.getElementById("showAllTodos");
-  showAllTodos.addEventListener("click", () => {
-    activeDate.textContent = "Alla todos...";
-    todos.forEach((item) => {
-      item.visibility = true;
-      updateUI();
-    });
   });
 }
 
@@ -85,14 +85,11 @@ function setVisibilityToAllItems() {
 
 function deleteTodoItem(todoItem) {
   const index = todos.indexOf(todoItem);
-
   todos.splice(index, 1);
-
   localStorage.setItem("todos", JSON.stringify(todos));
 
   updateUI();
   renderCalendar();
-  // }
 }
 
 function showTodayEvents() {
@@ -109,8 +106,8 @@ function showTodayEvents() {
       todoDate.getDate() === currentDay
     );
   });
-  const todayList = document.getElementById("todayEvents");
 
+  const todayList = document.getElementById("todayEvents");
   if (todayList) {
     todayList.innerHTML = "<strong>Dagens händelser:</strong>";
 
@@ -119,7 +116,6 @@ function showTodayEvents() {
       listItem.innerHTML = `<strong>${todoItem.title}</strong> - ${todoItem.date}`;
       todayList.appendChild(listItem);
     });
-  } else {
   }
 }
 
@@ -214,7 +210,6 @@ function updateUI() {
       listItem.appendChild(toDoIcons);
     }
   });
-  //todoList.innerHTML = "";
   showTodayEvents();
 }
 
@@ -242,12 +237,14 @@ function setVisibilityByDate(array, targetDate) {
     item.visibility = item.date === targetDate;
   });
 }
+
 function setVisibilityToFalse() {
   todos.forEach((item) => {
     item.visibility = false;
   });
   updateUI();
 }
+
 function convertToDate(query) {
   const inputDate = new Date(query);
   const year = inputDate.getFullYear();
