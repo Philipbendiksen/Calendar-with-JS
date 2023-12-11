@@ -48,7 +48,7 @@ body {
 .buttons {
   display: flex;
   text-align: center;
-  font-size: 22px;
+  font-size: 15px;
   text-transform: uppercase;
   justify-content: center;
   color: cornflowerblue;
@@ -59,6 +59,14 @@ body {
 .buttons,
 button {
   cursor: pointer;
+}
+.button-new-style {
+  display: flex;
+  color: black;
+  width: 60px;
+  border-radius: 10%;
+  background-color: #9ec8b9;
+  border-style: none;
 }
 
 .calendar {
