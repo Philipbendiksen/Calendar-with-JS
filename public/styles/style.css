@@ -48,7 +48,7 @@ body {
 .buttons {
   display: flex;
   text-align: center;
-  font-size: 20px;
+  font-size: 22px;
   text-transform: uppercase;
   justify-content: center;
   color: black; 
