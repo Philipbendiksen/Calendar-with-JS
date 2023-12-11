@@ -1,45 +1,44 @@
 let nav = 0;
 
-
-
 function initCalendar() {
   initbuttons();
   renderCalendar();
 }
 
 function renderCalendar() {
-  const dt = new Date();
+  const date = new Date();
   const calendar = document.getElementById("calendarNumber");
 
   if (nav !== 0) {
-    dt.setMonth(new Date().getMonth() + nav);
+    date.setMonth(new Date().getMonth() + nav);
   }
 
-  const day = dt.getDate();
-  const month = dt.getMonth();
-  const year = dt.getFullYear();
+  const day = date.getDate();
+  const month = date.getMonth();
+  const year = date.getFullYear();
 
   const firstDayOfMonth = new Date(year, month, 1);
   const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-  const dateString = firstDayOfMonth.toLocaleDateString("en-us", {
+  const dateString = firstDayOfMonth.toLocaleDateString("sv-us", {
     weekday: "long",
     year: "numeric",
     month: "numeric",
     day: "numeric",
   });
 
-  let paddingDays = firstDayOfMonth.getDay() -1;
+  let paddingDays = firstDayOfMonth.getDay() - 1;
   if (paddingDays === 6) {
     paddingDays = 0;
   }
-  
-  document.getElementById("Monthdisplay").innerText = `${dt.toLocaleDateString(
-    "en-us",
-    { month: "long" }
-  )} ${year}`;
 
-  calendar.innerHTML = ""; /* skapar en empty string som nollställer kalendern */
+  document.getElementById(
+    "Monthdisplay"
+  ).innerText = `${date.toLocaleDateString("sv-us", {
+    month: "long",
+  })} ${year}`;
+
+  calendar.innerHTML = "";
 
   updateTodosCount();
 
@@ -52,7 +51,7 @@ function renderCalendar() {
     daySquare.dataset.cy = "calendar-cell";
 
     if (i > paddingDays) {
-      // add id to calendar cell date, and a div that contains the number of todos for that date
+      // Add id to calendar cell date, and a div that contains the number of todos for that date
       const dayId = `day-${year}-${month + 1}-${i - paddingDays}`;
       dayWithinSquare.id = dayId;
       dayWithinSquare.innerText = i - paddingDays;
@@ -72,29 +71,25 @@ function renderCalendar() {
         renderSelectedDate(convertedClickedDate);
       });
 
+      // Adds class to active day.
       if (i - paddingDays === day && nav === 0) {
-        /* Ska visa aktuell dag  */
-
         daySquare.className = "currentDay day";
       }
     } else {
       daySquare.classList.add("padding");
     }
     daySquare.appendChild(dayWithinSquare);
-    calendar.appendChild(daySquare); /* appendChild används för att skriva ut JS på sidan */
+    calendar.appendChild(daySquare);
   }
 }
-
+// Initiate month-control buttons
 function initbuttons() {
   document.getElementById("nextMonth").addEventListener("click", () => {
     nav++;
     renderCalendar();
   });
-
   document.getElementById("lastMonth").addEventListener("click", () => {
     nav--;
     renderCalendar();
   });
 }
-
-/* Kalendern börjar inte på nr 1, kolla upp varför det inte fungerar och var 1an tagit vägen  */
