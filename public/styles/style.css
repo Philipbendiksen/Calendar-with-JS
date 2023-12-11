@@ -48,7 +48,7 @@ body {
 .buttons {
   display: flex;
   text-align: center;
-  font-size: 22px;
+  font-size: 17px;
   text-transform: uppercase;
   justify-content: center;
   color: black; 
@@ -63,10 +63,10 @@ button {
 
 .button-new-style{
   display:flex; 
-  color: black;
+  color: white;
   width: 60px;
   border-radius: 10%;
-  background-color: #9ec8b9;
+  background-color: #2e4374;
   border-style: none;
 }
 
