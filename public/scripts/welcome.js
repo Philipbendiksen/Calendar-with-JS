@@ -13,6 +13,12 @@ function createCommonHeader() {
   const header = document.createElement("header");
   document.body.prepend(header);
 
+  const image = document.createElement("img");
+  image.setAttribute("src", "public/img/logga.png");
+  image.setAttribute("alt", "logotyp för kalender");
+
+  document.body.appendChild(image);
+
   const titleDiv = document.createElement("div");
   titleDiv.className = "title";
   titleDiv.innerHTML = "SEPO kalender";
