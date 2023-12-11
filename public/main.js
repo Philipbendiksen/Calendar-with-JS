@@ -6,4 +6,5 @@ function main() {
   initCalendar();
   initTodos();
   initWelcomeSegment();
+  setVisibilityToAllItems();
 }
