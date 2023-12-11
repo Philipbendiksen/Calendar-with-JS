@@ -1,8 +1,15 @@
 let nav = 0;
 
-const calendar = document.getElementById("calendarNumber");
-function load() {
+
+
+function initCalendar() {
+  initbuttons();
+  renderCalendar();
+}
+
+function renderCalendar() {
   const dt = new Date();
+  const calendar = document.getElementById("calendarNumber");
 
   if (nav !== 0) {
     dt.setMonth(new Date().getMonth() + nav);
@@ -22,21 +29,17 @@ function load() {
     day: "numeric",
   });
 
-  let paddingDays = dt.getDay();
-  if (paddingDays === -1) {
-    paddingDays = 4;
-  }
-  if (paddingDays === 7) {
+  let paddingDays = firstDayOfMonth.getDay() -1;
+  if (paddingDays === 6) {
     paddingDays = 0;
   }
-
+  
   document.getElementById("Monthdisplay").innerText = `${dt.toLocaleDateString(
     "en-us",
     { month: "long" }
   )} ${year}`;
 
-  calendar.innerHTML =
-    ""; /* skapar en empty string som nollställer kalendern */
+  calendar.innerHTML = ""; /* skapar en empty string som nollställer kalendern */
 
   updateTodosCount();
 
@@ -78,26 +81,20 @@ function load() {
       daySquare.classList.add("padding");
     }
     daySquare.appendChild(dayWithinSquare);
-    calendar.appendChild(
-      daySquare
-    ); /* appendChild används för att skriva ut JS på sidan */
+    calendar.appendChild(daySquare); /* appendChild används för att skriva ut JS på sidan */
   }
 }
 
 function initbuttons() {
   document.getElementById("nextMonth").addEventListener("click", () => {
     nav++;
-    load();
+    renderCalendar();
   });
 
   document.getElementById("lastMonth").addEventListener("click", () => {
     nav--;
-    load();
+    renderCalendar();
   });
 }
-
-initbuttons();
-
-load();
 
 /* Kalendern börjar inte på nr 1, kolla upp varför det inte fungerar och var 1an tagit vägen  */

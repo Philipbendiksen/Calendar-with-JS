@@ -1,4 +1,5 @@
 function initWelcomeSegment() {
+  createCommonHeader();
   document
     .querySelector("header")
     .appendChild(createWelcomeSegment("welcomeSegment-mobile"));

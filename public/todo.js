@@ -1,5 +1,9 @@
 function initTodos() {
   updateUI();
+ initToDoBtn();
+ setVisibilityToAllItems();
+  
+
   const addToDoBtn = document.getElementById("btnOpenPopUp");
   addToDoBtn.addEventListener("click", () => {
     const notificationModalBtn1 = document.querySelector("#notiModalBtn1");
@@ -26,6 +30,7 @@ function initTodos() {
     notificationModalBtn1.dataset.cy = "save-todo-button";
   });
 }
+function initToDoBtn(){
 const showAllTodos = document.getElementById("showAllTodos");
 showAllTodos.addEventListener("click", () => {
   activeDate.textContent = "Alla todos...";
@@ -34,6 +39,7 @@ showAllTodos.addEventListener("click", () => {
     updateUI();
   });
 });
+}
 
 function clearToDoFromEmptyObjects() {
   const filteredArray = todos.filter((obj) => obj.title.trim() !== "");
@@ -67,7 +73,7 @@ function addTodo() {
     date.value = "";
     notes.value = "";
     updateUI();
-    load();
+    renderCalendar();
   }
 }
 
@@ -85,7 +91,7 @@ function deleteTodoItem(todoItem) {
   localStorage.setItem("todos", JSON.stringify(todos));
 
   updateUI();
-  load();
+  renderCalendar();
   // }
 }
 

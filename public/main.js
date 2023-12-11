@@ -3,8 +3,7 @@ window.addEventListener("DOMContentLoaded", main);
 let todos = JSON.parse(localStorage.getItem("todos") || "[]");
 
 function main() {
-  setVisibilityToAllItems();
+  initCalendar();
   initTodos();
-  createCommonHeader();
   initWelcomeSegment();
 }
