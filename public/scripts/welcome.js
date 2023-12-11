@@ -1,5 +1,6 @@
 function initWelcomeSegment() {
   createCommonHeader();
+
   document
     .querySelector("header")
     .appendChild(createWelcomeSegment("welcomeSegment-mobile"));
@@ -7,6 +8,7 @@ function initWelcomeSegment() {
     .querySelector("aside")
     .prepend(createWelcomeSegment("welcomeSegment-desktop"));
 }
+
 function createCommonHeader() {
   const header = document.createElement("header");
   document.body.prepend(header);
@@ -36,7 +38,7 @@ function createWelcomeSegment(welcomeSegmentClassName) {
       day: "numeric",
     };
     const dateString = now
-      .toLocaleDateString("en-US", formatOptions)
+      .toLocaleDateString("sv-US", formatOptions)
       .replace(/,/g, ""); // Remove commas
     welcomeDateDiv.textContent = dateString;
   }
