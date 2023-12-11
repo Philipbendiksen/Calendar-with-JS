@@ -47,21 +47,6 @@ function createWelcomeSegment(welcomeSegmentClassName) {
   timeAndIconDiv.className = "timeAndSeasonIcon";
   welcomeSegment.appendChild(timeAndIconDiv);
 
-  /* const welcomeDayDiv = document.createElement("div");
-  welcomeDayDiv.className = "welcomeDay";
-  const dayNames = [
-    "sun", 
-    "mon", 
-    "tue", 
-    "wed", 
-    "thu", 
-    "fri", 
-    "sat"];
-  const now = new Date();
-  const day = dayNames[now.getDay() - 1];
-  welcomeDayDiv.textContent = day;
-  dayAndIconDiv.appendChild(welcomeDayDiv); */
-
   const welcomeTimeDiv = document.createElement("div");
   welcomeTimeDiv.className = "welcomeTime";
   updateWelcomeTime();
