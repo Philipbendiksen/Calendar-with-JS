@@ -48,7 +48,11 @@ body {
 .buttons {
   display: flex;
   text-align: center;
+<<<<<<< HEAD
   font-size: 15px;
+=======
+  font-size: 17px;
+>>>>>>> main
   text-transform: uppercase;
   justify-content: center;
   color: cornflowerblue;
@@ -60,12 +64,19 @@ body {
 button {
   cursor: pointer;
 }
+<<<<<<< HEAD
 .button-new-style {
   display: flex;
   color: black;
+=======
+
+.button-new-style{
+  display:flex; 
+  color: white;
+>>>>>>> main
   width: 60px;
   border-radius: 10%;
-  background-color: #9ec8b9;
+  background-color: #2e4374;
   border-style: none;
 }
 
