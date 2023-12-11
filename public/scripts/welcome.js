@@ -1,5 +1,6 @@
 function initWelcomeSegment() {
   createCommonHeader();
+
   document
     .querySelector("header")
     .appendChild(createWelcomeSegment("welcomeSegment-mobile"));
@@ -7,6 +8,7 @@ function initWelcomeSegment() {
     .querySelector("aside")
     .prepend(createWelcomeSegment("welcomeSegment-desktop"));
 }
+
 function createCommonHeader() {
   const header = document.createElement("header");
   document.body.prepend(header);
@@ -36,7 +38,7 @@ function createWelcomeSegment(welcomeSegmentClassName) {
       day: "numeric",
     };
     const dateString = now
-      .toLocaleDateString("en-US", formatOptions)
+      .toLocaleDateString("sv-US", formatOptions)
       .replace(/,/g, ""); // Remove commas
     welcomeDateDiv.textContent = dateString;
   }
@@ -46,21 +48,6 @@ function createWelcomeSegment(welcomeSegmentClassName) {
   const timeAndIconDiv = document.createElement("div");
   timeAndIconDiv.className = "timeAndSeasonIcon";
   welcomeSegment.appendChild(timeAndIconDiv);
-
-  /* const welcomeDayDiv = document.createElement("div");
-  welcomeDayDiv.className = "welcomeDay";
-  const dayNames = [
-    "sun", 
-    "mon", 
-    "tue", 
-    "wed", 
-    "thu", 
-    "fri", 
-    "sat"];
-  const now = new Date();
-  const day = dayNames[now.getDay() - 1];
-  welcomeDayDiv.textContent = day;
-  dayAndIconDiv.appendChild(welcomeDayDiv); */
 
   const welcomeTimeDiv = document.createElement("div");
   welcomeTimeDiv.className = "welcomeTime";

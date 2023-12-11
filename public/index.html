@@ -4,21 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="main.js"></script>
-    <script src="todo.js"></script>
-    <script src="mark_todo.js"></script>
-    <script src="calendar.js"></script>
-    <script src="modal.js"></script>
-    <script src="welcome.js"></script>
-    <script src="confirmationModal.js"></script>
+    <title>SEPO Kalender</title>
+    <script src="/scripts/main.js"></script>
+    <script src="/scripts/todo.js"></script>
+    <script src="/scripts/calendar.js"></script>
+    <script src="/scripts/mark_todo.js"></script>
+    <script src="/scripts/welcome.js"></script>
+    <script src="/scripts/confirmationModal.js"></script>
    
-    <link rel="shortcut icon" href="#" /> <!-- för att få bort favicon popup i konsol -->
+    <link rel="shortcut icon" href="#" /> <!-- To remove favicon console error -->
     <link rel="stylesheet" href="styles/style.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
+
   </head> 
   <body>
 
@@ -31,18 +31,16 @@
             <span
               class="material-symbols-outlined"
               data-cy="todo-reveal-form"
-              id="btnOpenPopUp">
+              id="addToDoBtn">
               add
             </span>
           </div>
           <div id="itemsContainer">
             <ul id="todayEvents">
-            
             </ul>
           </div>
         </div>
       </aside>
-
 
       <div class="calendarContainer" >
         <div id="seeDate">
@@ -68,8 +66,8 @@
           <div class="daysItem" data-cy="calendar-cell">LÖRD</div>
           <div class="daysItem" data-cy="calendar-cell">SÖND</div>
         </div>
-          <div class="calendar" id="calendarNumber" data-cy="calendar-body" data-cy="calendar-body" >   <!-- Dagar genererade med JS -->
-      
+        <div class="calendar" id="calendarNumber" data-cy="calendar-body" data-cy="calendar-body" >
+             <!-- Days rendered through JS -->
       </div>
 
       <div class="toDoModal hide" id="modal-popUp">

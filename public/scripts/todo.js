@@ -1,10 +1,20 @@
 function initTodos() {
   updateUI();
- initToDoBtn();
- setVisibilityToAllItems();
-  
+  initToDoBtn();
 
-  const addToDoBtn = document.getElementById("btnOpenPopUp");
+  function initToDoBtn() {
+    const showAllTodos = document.getElementById("showAllTodos");
+    showAllTodos.addEventListener("click", () => {
+      activeDate.textContent = "Alla todos...";
+      todos.forEach((item) => {
+        item.visibility = true;
+        updateUI();
+      });
+    });
+  }
+
+  //Initiate addToDo button, using confirmationModal() to show modal with desired content.
+  const addToDoBtn = document.getElementById("addToDoBtn");
   addToDoBtn.addEventListener("click", () => {
     const notificationModalBtn1 = document.querySelector("#notiModalBtn1");
     const modalContent = `
@@ -26,19 +36,8 @@ function initTodos() {
     confirmationModal("", "OK", "Avbryt", addTodo);
     notiModalTitle.innerHTML = modalContent;
     notiModalTitle.classList = "toDoInputStyle";
-
     notificationModalBtn1.dataset.cy = "save-todo-button";
   });
-}
-function initToDoBtn(){
-const showAllTodos = document.getElementById("showAllTodos");
-showAllTodos.addEventListener("click", () => {
-  activeDate.textContent = "Alla todos...";
-  todos.forEach((item) => {
-    item.visibility = true;
-    updateUI();
-  });
-});
 }
 
 function clearToDoFromEmptyObjects() {
@@ -47,7 +46,7 @@ function clearToDoFromEmptyObjects() {
 }
 
 function addTodo() {
-  // Hämta värden från input-fälten för att skapa en ny todo
+  // Get values from input-fields to create a new todo
   const title = document.getElementById("todoTitle");
   const place = document.getElementById("todoPlace");
   const date = document.getElementById("todoDate");
@@ -56,7 +55,7 @@ function addTodo() {
   if (title.value === "" || date.value === "") {
     console.log("Fel, saknar datum eller titel");
   } else {
-    //skapa en ny todo-objekt
+    //Create a new todo-object
     const newTodo = {
       title: title.value,
       place: place.value,
@@ -64,9 +63,9 @@ function addTodo() {
       notes: notes.value,
       visibility: true,
     };
-    // lägg tilli arrayen
+    // Add to array
     todos.push(newTodo);
-    // spara den uppdaterade
+    // Save the updated item
     localStorage.setItem("todos", JSON.stringify(todos));
     title.value = "";
     place.value = "";
@@ -81,18 +80,16 @@ function setVisibilityToAllItems() {
   todos.forEach((item) => {
     item.visibility = true;
   });
+  updateUI();
 }
 
 function deleteTodoItem(todoItem) {
   const index = todos.indexOf(todoItem);
-
   todos.splice(index, 1);
-
   localStorage.setItem("todos", JSON.stringify(todos));
 
   updateUI();
   renderCalendar();
-  // }
 }
 
 function showTodayEvents() {
@@ -109,8 +106,8 @@ function showTodayEvents() {
       todoDate.getDate() === currentDay
     );
   });
-  const todayList = document.getElementById("todayEvents");
 
+  const todayList = document.getElementById("todayEvents");
   if (todayList) {
     todayList.innerHTML = "<strong>Dagens händelser:</strong>";
 
@@ -119,21 +116,6 @@ function showTodayEvents() {
       listItem.innerHTML = `<strong>${todoItem.title}</strong> - ${todoItem.date}`;
       todayList.appendChild(listItem);
     });
-  } else {
-  }
-}
-
-const newEventModal = document.getElementById("modal-popUp");
-
-function openModal(date) {
-  clicked = date;
-
-  const eventForDay = events.find((e) => e.date === clicked);
-
-  if (eventForDay) {
-    console.log("event already exists");
-  } else {
-    newEventModal.style;
   }
 }
 
@@ -164,7 +146,6 @@ function openEditModal(todoItem) {
   document.getElementById("todoDate").value = todoItem.date;
   document.getElementById("todoNotes").value = todoItem.notes;
 
-  // notificationModalBtn1.removeEventListener("click", addTodo);
   notificationModalBtn1.addEventListener("click", function () {
     console.log("updated item!");
     console.log(todoItem.title);
@@ -229,7 +210,6 @@ function updateUI() {
       listItem.appendChild(toDoIcons);
     }
   });
-  //todoList.innerHTML = "";
   showTodayEvents();
 }
 
@@ -257,13 +237,14 @@ function setVisibilityByDate(array, targetDate) {
     item.visibility = item.date === targetDate;
   });
 }
+
 function setVisibilityToFalse() {
   todos.forEach((item) => {
     item.visibility = false;
   });
   updateUI();
-  console.log(todos);
 }
+
 function convertToDate(query) {
   const inputDate = new Date(query);
   const year = inputDate.getFullYear();
@@ -275,14 +256,3 @@ function convertToDate(query) {
 }
 
 function doNothing() {}
-
-/* DAVID
-
-*/
-
-/*
-ATT GÖRA:
-- fadad backdrop på Ny händelse
-
-const todos: array - har redan va?
-*/
