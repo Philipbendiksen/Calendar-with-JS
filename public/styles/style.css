@@ -48,6 +48,8 @@ body {
 .buttons {
   display: flex;
   text-align: center;
+  font-size: 22px;
+  text-transform: uppercase;
   justify-content: center;
   color: cornflowerblue;
   margin: 1rem;
