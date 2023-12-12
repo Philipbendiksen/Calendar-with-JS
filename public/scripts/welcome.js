@@ -1,5 +1,5 @@
 function initWelcomeSegment() {
-  //createCommonHeader();
+  createCommonHeader();
 
   document
     .querySelector("header")
@@ -9,16 +9,23 @@ function initWelcomeSegment() {
     .prepend(createWelcomeSegment("welcomeSegment-desktop"));
 }
 
-/*function createCommonHeader() {
+function createCommonHeader() {
   const header = document.createElement("header");
   document.body.prepend(header);
+
+  const logoImg = document.createElement("img");
+  logoImg.src = "img/logga.png";
+  logoImg.alt = "logotyp";
+  logoImg.className = "logo";
+  header.appendChild(logoImg);
 
   /*const titleDiv = document.createElement("div");
   titleDiv.className = "title";
   titleDiv.innerHTML = "SEPO kalender";
   header.appendChild(titleDiv);
+  */
 }
-*/
+
 function createWelcomeSegment(welcomeSegmentClassName) {
   const welcomeSegment = document.createElement("div");
   welcomeSegment.className = welcomeSegmentClassName;
