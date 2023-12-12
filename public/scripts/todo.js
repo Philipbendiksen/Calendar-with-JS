@@ -181,7 +181,7 @@ function updateUI() {
       toDoIcons.classList = "toDoIcons";
 
       const deleteIcon = document.createElement("span");
-      deleteIcon.className = "material-symbols-outlined";
+      deleteIcon.className = "material-symbols-outlined deleteIcon";
       deleteIcon.dataset.cy = "delete-todo-button";
       deleteIcon.innerText = "delete";
 
@@ -190,7 +190,7 @@ function updateUI() {
       });
 
       const editIcon = document.createElement("span");
-      editIcon.className = "material-symbols-outlined";
+      editIcon.className = "material-symbols-outlined editIcon";
       editIcon.dataset.cy = "edit-todo-button";
       editIcon.innerText = "edit";
 

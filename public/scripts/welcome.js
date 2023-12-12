@@ -74,8 +74,23 @@ function createWelcomeSegment(welcomeSegmentClassName) {
 
   const iconDiv = document.createElement("div");
   iconDiv.className = "seasonalIcon";
-  iconDiv.textContent = "⛄️❄️";
+  iconDiv.textContent = getSeasonalEmoji();
   timeAndIconDiv.appendChild(iconDiv);
 
   return welcomeSegment;
+
+  function getSeasonalEmoji() {
+    const now = new Date();
+    const month = now.getMonth() + 1;
+
+    if (month >= 11 || month <= 2) {
+      return "⛄️❄️";
+    } else if (month >= 3 && month <= 5) {
+      return "🌷";
+    } else if (month >= 6 && month <= 8) {
+      return "☀️";
+    } else {
+      return "🍂";
+    }
+  }
 }
