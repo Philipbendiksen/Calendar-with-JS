@@ -1,4 +1,10 @@
+
 let nav = 0;
+
+function resetToCurrentMonth() {
+  nav = 0;
+  renderCalendar();
+}
 
 function initCalendar() {
   initbuttons();
@@ -88,4 +94,10 @@ function initbuttons() {
     nav--;
     renderCalendar();
   });
+
+  document.getElementById("Monthdisplay").addEventListener("click", resetToCurrentMonth);
+
 }
+
+
+
