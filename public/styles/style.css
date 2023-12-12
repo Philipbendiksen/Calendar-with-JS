@@ -22,9 +22,11 @@ body {
   height: 100svh;
 }
 
-img {
-  max-width: 100%;
+.logo {
+  max-width: 70%;
   max-height: 70%;
+  display: block;
+  margin-left: 6px;
 }
 
 .title,
