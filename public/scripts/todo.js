@@ -255,4 +255,4 @@ function convertToDate(query) {
   return formattedDateString;
 }
 
-function doNothing() {}
+function doNothing() { }

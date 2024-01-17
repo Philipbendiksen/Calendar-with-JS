@@ -8,7 +8,5 @@
     "update": "plugga update",
     "test": "plugga test"
   },
-  "devDependencies": {
-    "@plugga-tech/todo-calendar-js": "^2.1.0"
-  }
+  "devDependencies": {}
 }
